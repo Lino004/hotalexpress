@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38.121" height="38.52" viewBox="0 0 38.121 38.52">
+  <g id="bakery_icon3" transform="translate(-9.808 -9.23)">
+    <g id="Groupe_263" data-name="Groupe 263" transform="translate(9.811 31.832)">
+      <path id="Tracé_545" data-name="Tracé 545" d="M47.814,86.665c-.7-3.057-7.54-11.995-18.937-11.995S10.644,83.6,9.939,86.662a3.158,3.158,0,0,0,1.882,3.927H45.931A3.153,3.153,0,0,0,47.814,86.665Z" transform="translate(-9.818 -74.67)" fill="#ffde78"/>
+    </g>
+    <g id="Groupe_267" data-name="Groupe 267" transform="translate(18.885 31.887)">
+      <g id="Groupe_264" data-name="Groupe 264" transform="translate(8.465)">
+        <path id="Tracé_546" data-name="Tracé 546" d="M60.6,74.83V85.164a1.52,1.52,0,0,0,1.52,1.52h0a1.52,1.52,0,0,0,1.52-1.52V74.83" transform="translate(-60.6 -74.83)" fill="#fdc952"/>
+      </g>
+      <g id="Groupe_265" data-name="Groupe 265" transform="translate(0 1.122)">
+        <path id="Tracé_547" data-name="Tracé 547" d="M36.09,79.424v7.864a1.52,1.52,0,0,0,1.52,1.52h0a1.52,1.52,0,0,0,1.52-1.52V78.08" transform="translate(-36.09 -78.08)" fill="#fdc952"/>
+      </g>
+      <g id="Groupe_266" data-name="Groupe 266" transform="translate(16.93 1.122)">
+        <path id="Tracé_548" data-name="Tracé 548" d="M88.149,79.424v7.868a1.52,1.52,0,0,1-1.52,1.52h0a1.52,1.52,0,0,1-1.52-1.52V78.08" transform="translate(-85.11 -78.08)" fill="#fdc952"/>
+      </g>
+    </g>
+    <g id="Groupe_268" data-name="Groupe 268" transform="translate(22.738 9.23)">
+      <path id="Tracé_549" data-name="Tracé 549" d="M51.436,26.627s-4.956-3.133-4.089-7.046,5.723-6.7,1.993-10.351c5.139,2.521,5.747,5.132,4.79,7.218S47.782,22.365,51.436,26.627Z" transform="translate(-47.245 -9.23)" fill="#fff1dc"/>
+    </g>
+    <g id="Groupe_269" data-name="Groupe 269" transform="translate(28.643 15.581)">
+      <path id="Tracé_550" data-name="Tracé 550" d="M66.764,40.119s-3.3-2.324-2.193-5.543,4.062-3.827,3.713-6.956c2,3.392,2.086,4.7,1.475,6.262S65.448,37.339,66.764,40.119Z" transform="translate(-64.344 -27.62)" fill="#fff1dc"/>
+    </g>
+    <g id="Groupe_270" data-name="Groupe 270" transform="translate(9.808 35.821)">
+      <path id="Tracé_551" data-name="Tracé 551" d="M31.395,96.961c-4.1.041-8.272.066-12.192-1.133-2-.611-4.086-1.727-4.766-3.706a5.42,5.42,0,0,1,1.312-5.129,8.608,8.608,0,0,1,.774-.774c-3.913,2.787-6.2,6.3-6.593,8a3.158,3.158,0,0,0,1.882,3.927H45.925A3.108,3.108,0,0,0,47.9,94.841a27.573,27.573,0,0,1-3.937,1.143A63.215,63.215,0,0,1,31.395,96.961Z" transform="translate(-9.808 -86.22)" fill="#fdc952"/>
+    </g>
+  </g>
+</svg>
