@@ -1,7 +1,7 @@
 <template>
   <div class="bg-grid3 text-xs">
     <div class="container mx-auto w-full md:w-9/12 p-4 text-white">
-      <div class="py-4 grid grid-cols-4 gap-4">
+      <div class="py-4 grid md:grid-cols-4 gap-4">
         <section>
           <h4 class="font-medium mb-2">
             About Halal Express

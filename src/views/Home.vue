@@ -9,7 +9,7 @@
         Vos courses chez vous en un clic
       </h1>
       <section class="flex items-center mx-auto w-full md:w-3/4 md:space-x-4 mt-4 mb-2">
-        <div class="flex-initial p-4 rounded-xl shadow-box1 hidden md:flex items-center">
+        <div class="flex-initial p-4 rounded-xl shadow-box1 hidden lg:flex items-center">
           <span class="mr-1 text-gray-400">
             <i class="mdi mdi-bike"></i>
           </span>
@@ -36,14 +36,14 @@
         <a class="text-red-700">Log in</a> for recent addresses
       </div>
       <section class="my-20">
-        <div class="flex overflow-x-auto md:overflow-hidden md:space-x-4 justify-center md:mb-0 py-2.5">
-          <div class="flex-initial min-w-100" v-for="(item, i) in itemsAction" :key="i">
+        <div class="flex overflow-x-auto lg:overflow-hidden md:space-x-4 lg:justify-center md:mb-0 py-2.5">
+          <div v-for="(item, i) in itemsAction" :key="i">
             <CardAction
               :img="item.img"
               :label="item.label"/>
           </div>
         </div>
-        <div class="flex overflow-x-auto md:grid md:grid-cols-3 gap-4 py-2.5">
+        <div class="flex overflow-x-auto xl:grid xl:grid-cols-3 gap-4 py-2.5">
           <div v-for="(item, i) in itemsProduit" :key="i">
             <CardProduit
               :title="item.title"
@@ -55,9 +55,9 @@
           </div>
         </div>
       </section>
-      <section class="flex flex-col md:flex-row items-center space-x-0 md:space-x-20  justify-center my-20">
+      <section class="flex flex-col lg:flex-row items-center space-x-0 lg:space-x-20  justify-center my-20">
         <img class="w-96" src="@/assets/images/illustrations/illustration1.svg">
-        <div class="w-96 text-center md:text-left">
+        <div class="w-96 text-center lg:text-left">
           <TabsBar
             :length="3"
             :value="1"/>
@@ -79,7 +79,7 @@
             :value="2"
             class="mb-5"/>
         </div>
-        <div class="flex overflow-x-auto md:grid md:grid-cols-3 gap-4 py-2.5 ">
+        <div class="flex overflow-x-auto xl:grid xl:grid-cols-3 gap-4 py-2.5 ">
           <div v-for="(item, i) in itemsProduit" :key="i">
             <CardProduit
               :title="item.title"
