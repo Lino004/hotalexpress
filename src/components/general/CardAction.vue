@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center py-2 px-4 rounded shadow-box1">
+  <div class="text-center py-2 md:px-4 rounded shadow-md md:shadow-box1">
     <img class="mx-auto h-8" :src="img">
     <h4 class="text-sm"> {{label}} </h4>
   </div>

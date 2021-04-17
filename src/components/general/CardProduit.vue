@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow-box1">
+  <div class="shadow-box1" :class="customClass">
     <figure class="relative">
       <img class="w-full h-40 object-cover" :src="img" alt="">
       <div class="absolute bg-red-600 left-0 top-10 text-white text-xs p-1" v-if="label">
@@ -27,7 +27,8 @@ export default {
     title: String,
     description: String,
     labelBtn: String,
-    img: String
+    img: String,
+    customClass: String
   }
 }
 </script>

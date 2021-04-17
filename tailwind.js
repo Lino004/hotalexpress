@@ -23,6 +23,10 @@ module.exports = {
       box1: '0px 3px 6px #00000029',
       box2: '0px 3px 3px #00000029'
     },
+    minWidth: {
+      100: '80px',
+      300: '300px'
+    },
     extend: {
       backgroundImage: theme => ({
       })

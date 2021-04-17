@@ -36,27 +36,28 @@
         <a class="text-red-700">Log in</a> for recent addresses
       </div>
       <section class="my-20">
-        <div class="flex flex-nowrap overflow-x-auto md:overflow-hidden space-x-4 justify-center mb-4">
-          <div class="flex-initial" v-for="(item, i) in itemsAction" :key="i">
+        <div class="flex overflow-x-auto md:overflow-hidden md:space-x-4 justify-center md:mb-0 py-2.5">
+          <div class="flex-initial min-w-100" v-for="(item, i) in itemsAction" :key="i">
             <CardAction
               :img="item.img"
               :label="item.label"/>
           </div>
         </div>
-        <div class="grid grid-cols-3 gap-4">
+        <div class="flex overflow-x-auto md:grid md:grid-cols-3 gap-4 py-2.5">
           <div v-for="(item, i) in itemsProduit" :key="i">
             <CardProduit
               :title="item.title"
               :label="item.label"
               :description="item.description"
               :label-btn="item.labelBtn"
-              :img="item.img"/>
+              :img="item.img"
+              custom-class="min-w-300"/>
           </div>
         </div>
       </section>
       <section class="flex flex-col md:flex-row items-center space-x-0 md:space-x-20  justify-center my-20">
         <img class="w-96" src="@/assets/images/illustrations/illustration1.svg">
-        <div class="w-96 justify-center">
+        <div class="w-96 text-center md:text-left">
           <TabsBar
             :length="3"
             :value="1"/>
@@ -78,14 +79,15 @@
             :value="2"
             class="mb-5"/>
         </div>
-        <div class="grid grid-cols-3 gap-4">
+        <div class="flex overflow-x-auto md:grid md:grid-cols-3 gap-4 py-2.5 ">
           <div v-for="(item, i) in itemsProduit" :key="i">
             <CardProduit
               :title="item.title"
               :label="item.label"
               :description="item.description"
               :label-btn="item.labelBtn"
-              :img="item.img"/>
+              :img="item.img"
+              custom-class="min-w-300"/>
           </div>
         </div>
       </section>
