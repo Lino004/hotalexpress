@@ -8,8 +8,8 @@
       <h1 class="text-2xl text-grid1 text-center">
         Vos courses chez vous en un clic
       </h1>
-      <section class="flex items-center mx-auto w-full md:w-3/4 space-x-4 mt-4 mb-2">
-        <div class="flex-initial p-4 rounded-xl shadow-box1 flex items-center">
+      <section class="flex items-center mx-auto w-full md:w-3/4 md:space-x-4 mt-4 mb-2">
+        <div class="flex-initial p-4 rounded-xl shadow-box1 hidden md:flex items-center">
           <span class="mr-1 text-gray-400">
             <i class="mdi mdi-bike"></i>
           </span>
@@ -24,11 +24,14 @@
           <input
             class="flex-1 border border-transparent focus:outline-none focus:border-transparent"
             placeholder="Adresse, ville ou code postal">
-          <button class="flex-initial bg-gradient-to-r from-grid2 to-grid1 py-2 px-4 rounded text-white">
+          <button class="flex-initial bg-gradient-to-r from-grid2 to-grid1 py-2 px-4 rounded text-white hidden md:block">
             Search
           </button>
         </div>
       </section>
+      <button class="bg-gradient-to-r from-grid2 to-grid1 py-2 px-4 rounded text-white md:hidden w-full">
+        Search
+      </button>
       <div class="text-center">
         <a class="text-red-700">Log in</a> for recent addresses
       </div>
