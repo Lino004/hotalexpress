@@ -36,13 +36,11 @@
         <a class="text-red-700">Log in</a> for recent addresses
       </div>
       <section class="my-20">
-        <div class="space-x-4 justify-center mb-4">
-          <div class="grid md:grid-cols-7 grid-cols-5">
-            <div v-for="(item, i) in itemsAction" :key="i">
-              <CardAction
-                :img="item.img"
-                :label="item.label"/>
-            </div>
+        <div class="flex flex-nowrap overflow-x-auto md:overflow-hidden space-x-4 justify-center mb-4">
+          <div class="flex-initial" v-for="(item, i) in itemsAction" :key="i">
+            <CardAction
+              :img="item.img"
+              :label="item.label"/>
           </div>
         </div>
         <div class="grid grid-cols-3 gap-4">
