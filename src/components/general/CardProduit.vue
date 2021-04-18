@@ -2,19 +2,19 @@
   <div class="shadow-box1" :class="customClass">
     <figure class="relative">
       <img class="w-full h-40 object-cover" :src="img" alt="">
-      <div class="absolute bg-red-600 left-0 top-10 text-white text-xs p-1" v-if="label">
+      <div class="absolute bg-red-600 left-0 top-10 text-white text-10 md:text-xs p-1" v-if="label">
         {{label}}
       </div>
-      <div class="absolute bottom-0 w-full bg-gradient-to-t from-black flex justify-between text-white p-2">
-        <div>
+      <div class="absolute bottom-0 w-full bg-gradient-to-t from-black flex items-center justify-between text-white p-2 font-semibold">
+        <div class="text-xs md:text-14">
           {{title}}
         </div>
-        <button class="bg-white text-black p-1 text-sm shadow-box2">
+        <button class="bg-white text-black py-1 px-2 shadow-box2 text-10 md:text-xs font-semibold">
           {{labelBtn}}
         </button>
       </div>
     </figure>
-    <div class="text-gray-500 p-2 text-xs">
+    <div class="text-grid7 p-2 text-xs">
       {{description}}
     </div>
   </div>

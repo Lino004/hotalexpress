@@ -1,14 +1,14 @@
 <template>
   <div>
-    <NavBar/>
-    <div class="container mx-auto w-full md:w-9/12 p-4">
-      <h1 class="text-4xl text-grid1 text-center font-medium">
+    <NavBar home/>
+    <div class="container mx-auto w-full md:w-9/12 md:p-4 mt-14">
+      <h1 class="px-2 md:px-0 text-3xl lg:text-42 text-grid1 text-center font-semibold">
         L’alimentation c’est notre affaire
       </h1>
-      <h1 class="text-2xl text-grid1 text-center">
+      <h1 class="px-2 md:px-0 text-2xl text-grid1 text-center">
         Vos courses chez vous en un clic
       </h1>
-      <section class="flex items-center mx-auto w-full md:w-3/4 md:space-x-4 mt-4 mb-2">
+      <section class="flex items-center mx-auto w-full md:w-3/4 md:space-x-4 mt-4 mb-2 px-2 md:px-0">
         <div class="flex-initial p-4 rounded-xl shadow-box1 hidden lg:flex items-center">
           <span class="mr-1 text-gray-400">
             <i class="mdi mdi-bike"></i>
@@ -17,7 +17,7 @@
             class="flex-1 border border-transparent focus:outline-none focus:border-transparent"
             placeholder="Delivery">
         </div>
-        <div class="flex-1 p-2 rounded-xl shadow-box1 flex items-center">
+        <div class="flex-1 p-2 rounded shadow-box1 flex items-center">
           <span class="mr-1 text-gray-400">
             <i class="mdi mdi-send"></i>
           </span>
@@ -29,18 +29,21 @@
           </button>
         </div>
       </section>
-      <button class="bg-gradient-to-r from-grid2 to-grid1 py-2 px-4 rounded text-white md:hidden w-full">
-        Search
-      </button>
-      <div class="text-center">
+      <div class="px-2 md:hidden">
+        <button class="bg-gradient-to-r from-grid2 to-grid1 py-2 px-4 rounded text-white w-full">
+          Search
+        </button>
+      </div>
+      <div class="text-center text-xs text-grid7 mt-3.5">
         <a class="text-red-700">Log in</a> for recent addresses
       </div>
-      <section class="my-20">
-        <div class="flex overflow-x-auto lg:overflow-hidden md:space-x-4 lg:justify-center md:mb-0 py-2.5">
+      <section class="my-16">
+        <div class="flex overflow-x-auto lg:overflow-hidden md:space-x-4 lg:justify-center md:mb-0 py-0 md:py-2.5">
           <div v-for="(item, i) in itemsAction" :key="i">
             <CardAction
               :img="item.img"
-              :label="item.label"/>
+              :label="item.label"
+              :active="i === 0"/>
           </div>
         </div>
         <div class="flex overflow-x-auto xl:grid xl:grid-cols-3 gap-4 py-2.5">
@@ -51,27 +54,27 @@
               :description="item.description"
               :label-btn="item.labelBtn"
               :img="item.img"
-              custom-class="min-w-300"/>
+              custom-class="min-w-300 ml-2 md:ml-0"/>
           </div>
         </div>
       </section>
       <section class="flex flex-col lg:flex-row items-center space-x-0 lg:space-x-20  justify-center my-20">
-        <img class="w-96" src="@/assets/images/illustrations/illustration1.svg">
-        <div class="w-96 text-center lg:text-left">
+        <img class="w-80 md:w-96" src="@/assets/images/illustrations/illustration1.png">
+        <div class="w-80 md:w-96 text-center lg:text-left">
           <TabsBar
             :length="3"
             :value="1"/>
-          <h1 class="text-3xl font-medium">
+          <h1 class="text-20 md:text-3xl font-semibold">
             Commandez et faites vous livrer dans les 3 heures
           </h1>
-          <p>
+          <p class="text-14 md:text-base">
             Immédiatement après votre commande, vos produits sont préparés et livrés à votre convenance.
           </p>
         </div>
       </section>
       <section class="mb-20">
         <div class="text-center">
-          <h1 class="text-3xl font-medium">
+          <h1 class="text-20 md:text-3xl font-semibold">
             Notre choix pour vous
           </h1>
           <TabsBar
