@@ -2,7 +2,7 @@
   <div>
     <NavBar home/>
     <div class="container mx-auto w-full md:w-9/12 md:p-4 mt-14">
-      <h1 class="px-2 md:px-0 text-3xl lg:text-42 text-grid1 text-center font-semibold">
+      <h1 class="px-2 md:px-0 text-3xl lg:text-42px text-grid1 text-center font-semibold">
         L’alimentation c’est notre affaire
       </h1>
       <h1 class="px-2 md:px-0 text-2xl text-grid1 text-center">
@@ -64,17 +64,17 @@
           <TabsBar
             :length="3"
             :value="1"/>
-          <h1 class="text-20 md:text-3xl font-semibold">
+          <h1 class="text-xl md:text-3xl font-semibold">
             Commandez et faites vous livrer dans les 3 heures
           </h1>
-          <p class="text-14 md:text-base">
+          <p class="text-sm md:text-base">
             Immédiatement après votre commande, vos produits sont préparés et livrés à votre convenance.
           </p>
         </div>
       </section>
       <section class="mb-20">
         <div class="text-center">
-          <h1 class="text-20 md:text-3xl font-semibold">
+          <h1 class="text-xl md:text-3xl font-semibold">
             Notre choix pour vous
           </h1>
           <TabsBar

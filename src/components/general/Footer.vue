@@ -92,12 +92,17 @@
         </div>
       </div>
     </div>
+    <FooterActionMobile :fixed="false"/>
   </div>
 </template>
 
 <script>
-export default {
+import FooterActionMobile from '@/components/general/FooterActionMobile.vue'
 
+export default {
+  components: {
+    FooterActionMobile
+  }
 }
 </script>
 

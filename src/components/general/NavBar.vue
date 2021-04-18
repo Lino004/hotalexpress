@@ -6,8 +6,8 @@
     <div
       class="container mx-auto w-full md:w-9/12 p-4"
       :class="{
-        'xs:h-71 md:h-32': home,
-        'h-20': !home
+        'h-20 md:h-32': home,
+        'h-16': !home
       }">
       <div class="flex justify-between content-center">
         <div class="">
@@ -15,9 +15,9 @@
           <img src="@/assets/images/logo.svg" alt="" v-else>
         </div>
         <div class="flex items-center">
-          <div class="text-xs text-right mr-2 font-medium hidden md:flex" v-if="!home">
+          <div class="text-sm text-right mr-2 font-medium hidden md:flex" v-if="!home">
             Delivery│Now <br>
-            Rue de Brabant 230
+            ▼ Rue de Brabant 230
           </div>
           <button
             class="border rounded mr-2 py-1 px-2 hidden md:flex items-center"
@@ -45,10 +45,13 @@
             class="md:hidden items-center"
             :class="{
               'text-white': home,
-              'border border-grid5': !home
+              'border border-grid5 py-1 px-2': !home
             }">
-            <span :class="{ 'text-grid2': !home }">
-              <i class="mdi mdi-menu text-3xl"></i>
+            <span :class="{
+              'text-grid2': !home,
+              'text-3xl': home
+              }">
+              <i class="mdi mdi-menu"></i>
             </span>
               {{ home ? '' : 'Menu' }}
           </button>

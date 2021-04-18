@@ -2,17 +2,17 @@
   <div>
     <NavBar/>
     <hr class="text-grid5">
-    <section class="container mx-auto w-full md:w-9/12 p-4 text-center flex md:block flex-nowrap overflow-x-auto">
+    <section class="container mx-auto w-full md:w-9/12 px-4 pt-4 md:p-4 text-center flex flex-nowrap overflow-x-auto md:justify-center">
       <button
-        class="rounded-3xl md:bg-grid5 p-2 mr-2 font-medium focus:outline-none"
+        class="flex-none rounded-3xl text-sm md:bg-grid5 p-2 mr-2 font-medium focus:outline-none"
         :class="{
-          'md:bg-grid6': currentItem === i
+          'underline md:no-underline md:bg-grid6': currentItem === i
         }"
         v-for="(item, i) in itemCategories" :key="i">
         {{item}}
       </button>
     </section>
-    <div class="flex justify-center">
+    <div class="md:flex justify-center hidden">
       <hr class="text-grid5 w-5/6">
     </div>
     <section class="container mx-auto w-full md:w-9/12 p-4">
@@ -28,6 +28,7 @@
       </div>
     </section>
     <Footer/>
+    <FooterActionMobile/>
   </div>
 </template>
 
@@ -35,6 +36,7 @@
 import NavBar from '@/components/general/NavBar.vue'
 import CardProduit from '@/components/general/CardProduit.vue'
 import Footer from '@/components/general/Footer.vue'
+import FooterActionMobile from '@/components/general/FooterActionMobile.vue'
 
 import Boucherie from '@/assets/images/boucherie.png'
 import Boucherie2 from '@/assets/images/boucherie2.png'
@@ -44,7 +46,8 @@ export default {
   components: {
     NavBar,
     CardProduit,
-    Footer
+    Footer,
+    FooterActionMobile
   },
   data () {
     return {
