@@ -39,6 +39,7 @@ module.exports = {
     fontSize: {
       ...defaultTheme.fontSize,
       '10px': '.625rem',
+      '22px': '1.375rem',
       '42px': '2.625rem'
     },
     boxShadow: {
