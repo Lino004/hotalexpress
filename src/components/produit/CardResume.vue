@@ -103,7 +103,7 @@
             </div>
           </div>
           <div>
-            <a class="text-grid2" @click="showDeliveryDetails = true">change</a>
+            <a class="text-grid2" @click="showDeliveryAddress = true">change</a>
           </div>
         </div>
         <hr class="text-grid5">
@@ -126,35 +126,32 @@
         Back
       </button>
     </div>
-    <div class="fixed w-full h-full bg-white top-0" v-if="showDeliveryDetails">
-      <delivery-details
+    <div class="fixed w-full h-full bg-white top-0" v-if="showDeliveryAddress">
+      <delivery-address
         is-mobile
-        @update="update()"
-        @close="showDeliveryDetails = false"/>
+        @update="showDeliveryAddress = false"
+        @close="showDeliveryAddress = false"/>
     </div>
   </div>
 </template>
 
 <script>
-import DeliveryDetails from '@/components/cardResumeMobile/DeliveryDetails.vue'
+import DeliveryAddress from '@/components/cardResumeMobile/DeliveryAddress.vue'
 
 export default {
   props: {
     isMobile: Boolean
   },
   components: {
-    DeliveryDetails
+    DeliveryAddress
   },
   data () {
     return {
-      showDeliveryDetails: false
+      showDeliveryAddress: false
     }
   },
   methods: {
-    update () {
-      this.showDeliveryDetails = false
-      console.log('🚀 ~ file: CardResume.vue ~ line 156 ~ update ~ this.showDeliveryDetails', this.showDeliveryDetails)
-    }
+    update () {}
   }
 }
 </script>
