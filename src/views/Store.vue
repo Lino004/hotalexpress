@@ -27,7 +27,7 @@
         </div>
       </div>
     </section>
-    <Footer/>
+    <Footer show-footer-action-mobile/>
     <FooterActionMobile/>
   </div>
 </template>

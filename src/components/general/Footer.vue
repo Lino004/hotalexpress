@@ -92,7 +92,7 @@
         </div>
       </div>
     </div>
-    <FooterActionMobile :fixed="false"/>
+    <FooterActionMobile :fixed="false" v-if="showFooterActionMobile"/>
   </div>
 </template>
 
@@ -100,6 +100,12 @@
 import FooterActionMobile from '@/components/general/FooterActionMobile.vue'
 
 export default {
+  props: {
+    showFooterActionMobile: {
+      type: Boolean,
+      default: false
+    }
+  },
   components: {
     FooterActionMobile
   }

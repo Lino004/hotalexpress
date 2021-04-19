@@ -15,12 +15,12 @@
           <img src="@/assets/images/logo.svg" alt="" v-else>
         </div>
         <div class="flex items-center">
-          <div class="text-sm text-right mr-2 font-medium hidden md:flex" v-if="!home">
+          <div class="text-sm text-right mr-4 font-medium hidden md:flex" v-if="!home">
             Delivery│Now <br>
             ▼ Rue de Brabant 230
           </div>
           <button
-            class="border rounded mr-2 py-1 px-2 hidden md:flex items-center"
+            class="border rounded mr-4 py-1 px-2 hidden md:flex items-center"
             :class="{
               'border-white text-white': home,
               'border-grid5': !home
