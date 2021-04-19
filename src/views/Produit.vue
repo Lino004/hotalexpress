@@ -22,7 +22,7 @@
         Rue des palais 308, Schaerbeek, 1030 Brussels • <a class="font-semibold underline">More information</a>
       </div>
     </section>
-    <section class="border-t border-b border-grid5">
+    <section class="border-t border-b border-grid5 bg-white sticky top-0 z-10">
       <div class="container mx-auto w-full md:w-9/12 p-4 flex space-x-4 relative">
         <button
           class="text-sm focus:outline-none"
@@ -34,7 +34,7 @@
           @click="currentItemCategorie = i">
           {{item}}
         </button>
-        <div class="absolute w-1/3 right-0 shadow-box1 bg-white hidden lg:block" v-if="showResume">
+        <div class="absolute w-1/3 right-0 shadow-box1 bg-white hidden lg:block">
           <card-resume/>
         </div>
       </div>
@@ -110,7 +110,8 @@ export default {
     showResume () {
       return this.itemSubProduit.some(el => el.show === true)
     }
-  }
+  },
+  mounted () {}
 }
 </script>
 
