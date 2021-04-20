@@ -136,7 +136,8 @@
         <delivery-address
           @update="showDeliveryAddress = false"
           @close="showDeliveryAddress = false"
-          is-mobile/>
+          is-mobile
+          as-menu/>
       </div>
     </div>
   </div>

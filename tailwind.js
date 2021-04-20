@@ -29,13 +29,15 @@ module.exports = {
       grid6: '#EAC4C4',
       grid9: '#F8F8F8',
       grid13: '#ECECEC',
-      grid15: '#00000067'
+      grid15: '#00000067',
+      error: '#FCEDED'
     }),
     borderColor: theme => ({
       ...theme('colors'),
       grid5: '#EBEBEB',
       grid11: '#FF5A5A',
-      grid14: '#DCDDDE'
+      grid14: '#DCDDDE',
+      'error-border': '#DD0000'
     }),
     fontSize: {
       ...defaultTheme.fontSize,
