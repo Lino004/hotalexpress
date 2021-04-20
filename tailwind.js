@@ -49,6 +49,7 @@ module.exports = {
     },
     minWidth: {
       100: '80px',
+      168: '168px',
       300: '350px'
     },
     extend: {

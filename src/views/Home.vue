@@ -9,24 +9,41 @@
         Vos courses chez vous en un clic
       </h1>
       <section class="flex items-center mx-auto w-full md:w-3/4 md:space-x-4 mt-4 mb-2 px-2 md:px-0">
-        <div class="flex-initial p-4 rounded-xl shadow-box1 hidden lg:flex items-center">
-          <span class="mr-1 text-gray-400">
-            <i class="mdi mdi-bike"></i>
-          </span>
-          <input
-            class="flex-1 border border-transparent focus:outline-none focus:border-transparent"
-            placeholder="Delivery">
+        <div class="flex-initial">
+          <custom-select
+            v-model="choiceDelivery"
+            :data="[
+              {
+                label: 'Delivery',
+                icon: 'bike'
+              },
+              {
+                label: 'Pickup',
+                icon: 'walk'
+              }
+            ]">
+          </custom-select>
         </div>
-        <div class="flex-1 p-2 rounded shadow-box1 flex items-center">
-          <span class="mr-1 text-gray-400">
-            <i class="mdi mdi-send"></i>
-          </span>
-          <input
-            class="flex-1 border border-transparent focus:outline-none focus:border-transparent"
-            placeholder="Adresse, ville ou code postal">
-          <button class="flex-initial bg-gradient-to-r from-grid2 to-grid1 py-2 px-4 rounded text-white hidden md:block">
-            Search
-          </button>
+        <div class="flex-1">
+          <custom-autocomplet-home
+            :data="[
+              {
+                label: 'Rue du Monument',
+                subLabel: 'Ottignies-Louvain-La-Neuve, Belgium'
+              },
+              {
+                label: 'Rue du Monument',
+                subLabel: 'Hotton, Belgium'
+              },
+              {
+                label: 'Rue du Monument',
+                subLabel: 'Tintigny, Belgium'
+              },
+              {
+                label: 'Rue du Monument',
+                subLabel: 'Esneux, Belgium'
+              }
+            ]"/>
         </div>
       </section>
       <div class="px-2 md:hidden">
@@ -115,6 +132,8 @@ import Supermarkets from '@/assets/images/icons/supermarkets.svg'
 import Boucherie from '@/assets/images/boucherie.png'
 import Boucherie2 from '@/assets/images/boucherie2.png'
 import Boucherie3 from '@/assets/images/boucherie3.png'
+import CustomSelect from '../components/custom-form/CustomSelect.vue'
+import CustomAutocompletHome from '../components/custom-form/CustomAutocompletHome.vue'
 
 export default {
   name: 'Home',
@@ -123,7 +142,9 @@ export default {
     CardAction,
     CardProduit,
     TabsBar,
-    Footer
+    Footer,
+    CustomSelect,
+    CustomAutocompletHome
   },
   data () {
     return {
@@ -152,7 +173,7 @@ export default {
       itemsProduit: [
         {
           label: 'Free Delivery',
-          title: 'Boucherie Uccle Marvelstraat',
+          title: 'Boucherie Uccle Marvelstraat De Paris Le grand',
           description: 'Butcher · Delivery in 3 hours · Click’n collect · 4.8 (500+ Reviews)',
           labelBtn: '3 Hours',
           img: Boucherie2
@@ -171,7 +192,8 @@ export default {
           labelBtn: '3 Hours',
           img: Boucherie
         }
-      ]
+      ],
+      choiceDelivery: 0
     }
   }
 }
