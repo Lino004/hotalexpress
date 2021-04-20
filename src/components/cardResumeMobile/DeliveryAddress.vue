@@ -14,9 +14,7 @@
         <h4 class="font-semibold">
           Delivery address
         </h4>
-        <button :class="{
-          'md:hidden': asMenu
-        }" @click="$emit('close')">
+        <button class="md:hidden" @click="$emit('close')">
           <span>
             <i class="mdi mdi-close"></i>
           </span>

@@ -1,11 +1,19 @@
 <template>
   <div class="relative h-full flex flex-col">
     <div class="flex-1 overflow-y-auto">
+      <div class="hidden md:flex p-4 justify-between bg-white">
+        <img src="@/assets/images/logo.svg" alt="">
+        <button  @click="$emit('close')">
+          <span class="text-xl text-grid2">
+            <i class="mdi mdi-close"></i>
+          </span>
+        </button>
+      </div>
       <div class="flex p-4 justify-between">
         <h4 class="font-semibold">
           Delivery time
         </h4>
-        <button @click="$emit('close')">
+        <button class="md:hidden" @click="$emit('close')">
           <span>
             <i class="mdi mdi-close"></i>
           </span>

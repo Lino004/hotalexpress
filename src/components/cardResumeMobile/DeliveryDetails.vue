@@ -1,11 +1,20 @@
 <template>
   <div class="relative h-full flex flex-col">
     <div class="flex-1 overflow-y-auto">
+      <div class="hidden md:flex p-4 justify-between bg-white">
+        <img src="@/assets/images/logo.svg" alt="">
+        <button  @click="$emit('close')">
+          <span class="text-xl text-grid2">
+            <i class="mdi mdi-close"></i>
+          </span>
+        </button>
+      </div>
+      <hr class="text-grid5">
       <div class="flex p-4 justify-between">
         <h4 class="font-semibold">
           Delivery details
         </h4>
-        <button @click="$emit('close')">
+        <button class="md:hidden" @click="$emit('close')">
           <span>
             <i class="mdi mdi-close"></i>
           </span>
@@ -42,7 +51,7 @@
           </div>
           <div>
             <a
-              class="text-grid2 text-xs font-medium"
+              class="text-grid2 text-xs font-medium cursor-pointer"
               @click="showDeliveryAddress = true">
               Change
             </a>
@@ -62,7 +71,7 @@
           </div>
           <div>
             <a
-              class="text-grid2 text-xs font-medium"
+              class="text-grid2 text-xs font-medium cursor-pointer"
               @click="showDeliveryTime = true">
               Change
             </a>
@@ -86,13 +95,13 @@
         Update
       </button>
     </div>
-    <div class="fixed w-full h-full bg-white top-0" v-if="showDeliveryAddress">
+    <div class="absolute w-full h-full bg-white top-0" v-if="showDeliveryAddress">
       <delivery-address
         is-mobile
         @update="showDeliveryAddress = false"
         @close="showDeliveryAddress = false"/>
     </div>
-    <div class="fixed w-full h-full bg-white top-0" v-if="showDeliveryTime">
+    <div class="absolute w-full h-full bg-white top-0" v-if="showDeliveryTime">
       <delivery-time
         is-mobile
         @update="showDeliveryTime = false"

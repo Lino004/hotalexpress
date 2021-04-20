@@ -30,6 +30,19 @@
             </span>
             Sign up or log in
           </button>
+          <router-link
+            class="border rounded mr-4 py-1 px-2 hidden md:flex items-center"
+            :class="{
+              'border-white text-white': home,
+              'border-grid5': !home
+            }"
+            tag="button"
+            :to="{ name: 'Produit' }">
+            <span class="mr-1" :class="{ 'text-grid2': !home }">
+              <i class="mdi mdi-cart"></i>
+            </span>
+            €37,80
+          </router-link>
           <button
             class="border rounded py-1 px-2 hidden md:flex items-center"
             :class="{

@@ -45,22 +45,6 @@
             </span>
           </div>
         </div>
-        <div class="flex justify-between items-center border-b bg-white cursor-pointer border-grid5 px-4 py-2"
-          @click="showDeliveryAddress = true">
-          <div class="mr-2">
-            <span class="text-2xl text-grid7">
-              <i class="mdi mdi-map-marker-outline"></i>
-            </span>
-          </div>
-          <div class="flex-1">
-            <p>Delivery address</p>
-          </div>
-          <div>
-            <span class="text-2xl text-grid2">
-              <i class="mdi mdi-chevron-right"></i>
-            </span>
-          </div>
-        </div>
         <div class="flex justify-between items-center border-b bg-white cursor-pointer border-grid5 px-4 py-2">
           <div class="mr-2">
             <span class="text-2xl text-grid7">
@@ -123,7 +107,22 @@
             </span>
           </div>
         </div>
-        <div class="p-4 bg-white border-b border-grid5">
+        <!-- <div class="flex md:hidden justify-between items-center border-b bg-white cursor-pointer border-grid5 px-4 py-2">
+          <div class="mr-2">
+            <span class="text-2xl text-grid7">
+              <i class="mdi mdi-help-circle-outline"></i>
+            </span>
+          </div>
+          <div class="flex-1">
+            <p>FAQ</p>
+          </div>
+          <div>
+            <span class="text-2xl text-grid2">
+              <i class="mdi mdi-chevron-right"></i>
+            </span>
+          </div>
+        </div> -->
+        <div class="p-4 bg-white border-b border-grid5 hidden md:block">
           <select class="form-select text-sm rounded border border-grid14 w-full mb-2">
             <option>English</option>
           </select>
@@ -132,30 +131,20 @@
           </select>
         </div>
       </div>
-      <div class="absolute w-full h-full bg-white top-0" v-if="showDeliveryAddress">
-        <delivery-address
-          @update="showDeliveryAddress = false"
-          @close="showDeliveryAddress = false"
-          is-mobile
-          as-menu/>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { createNamespacedHelpers } from 'vuex'
-import DeliveryAddress from '../cardResumeMobile/DeliveryAddress.vue'
 
 const Menu = createNamespacedHelpers('menu')
 
 export default {
   components: {
-    DeliveryAddress
   },
   data () {
     return {
-      showDeliveryAddress: false
     }
   },
   computed: {

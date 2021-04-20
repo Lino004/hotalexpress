@@ -5,7 +5,7 @@
         <h4 class="font-semibold">
           My Basket
         </h4>
-        <button @click="$emit('close')">
+        <button class="md:hidden" @click="$emit('close')">
           <span>
             <i class="mdi mdi-close"></i>
           </span>
@@ -103,7 +103,9 @@
             </div>
           </div>
           <div>
-            <a class="text-grid2" @click="showDeliveryAddress = true">change</a>
+            <a
+              class="text-grid2 cursor-pointer"
+              @click="actionShowDeliveryDetails">change</a>
           </div>
         </div>
         <hr class="text-grid5">
@@ -126,32 +128,39 @@
         Back
       </button>
     </div>
-    <div class="fixed w-full h-full bg-white top-0" v-if="showDeliveryAddress">
-      <delivery-address
-        is-mobile
-        @update="showDeliveryAddress = false"
-        @close="showDeliveryAddress = false"/>
+    <div class="fixed w-full h-full xs:bg-white md:bg-grid15 top-0 left-0 md:flex" v-if="showDeliveryDetails">
+      <div class="hidden md:block md:flex-1"></div>
+      <div class="w-full h-full md:w-96 bg-white">
+        <delivery-details
+          is-mobile
+          @update="showDeliveryDetails = false"
+          @close="showDeliveryDetails = false"/>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import DeliveryAddress from '@/components/cardResumeMobile/DeliveryAddress.vue'
+import DeliveryDetails from '@/components/cardResumeMobile/DeliveryDetails.vue'
 
 export default {
   props: {
     isMobile: Boolean
   },
   components: {
-    DeliveryAddress
+    DeliveryDetails
   },
   data () {
     return {
-      showDeliveryAddress: false
+      showDeliveryDetails: false
     }
   },
   methods: {
-    update () {}
+    actionShowDeliveryDetails () {
+      // if (this.isMobile) {
+      this.showDeliveryDetails = true
+      // }
+    }
   }
 }
 </script>
