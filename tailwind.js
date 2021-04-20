@@ -28,7 +28,8 @@ module.exports = {
       grid5: '#EBEBEB',
       grid6: '#EAC4C4',
       grid9: '#F8F8F8',
-      grid13: '#ECECEC'
+      grid13: '#ECECEC',
+      grid15: '#00000067'
     }),
     borderColor: theme => ({
       ...theme('colors'),

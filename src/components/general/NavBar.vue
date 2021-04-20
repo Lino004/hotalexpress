@@ -35,7 +35,8 @@
             :class="{
               'border-white text-white': home,
               'border-grid5': !home
-            }">
+            }"
+            @click="setActive(true)">
             <span class="mr-1" :class="{ 'text-grid2': !home }">
               <i class="mdi mdi-menu"></i>
             </span>
@@ -46,7 +47,8 @@
             :class="{
               'text-white': home,
               'border border-grid5 py-1 px-2': !home
-            }">
+            }"
+            @click="setActive(true)">
             <span :class="{
               'text-grid2': !home,
               'text-3xl': home
@@ -62,9 +64,23 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex'
+
+const Menu = createNamespacedHelpers('menu')
+
 export default {
   props: {
     home: Boolean
+  },
+  data () {
+    return {
+      showMenu: false
+    }
+  },
+  methods: {
+    ...Menu.mapMutations({
+      setActive: 'SET_ACTIVE'
+    })
   }
 }
 </script>
