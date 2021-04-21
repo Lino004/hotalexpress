@@ -9,7 +9,7 @@
         <div class="text-sm w-4/6">
           {{title}}
         </div>
-        <div class="bg-white bg-opacity-80 text-black py-1 px-2 shadow-box2 text-10px md:text-xs font-semibold">
+        <div class="self-end bg-white bg-opacity-80 text-black py-1 px-2 shadow-box2 text-10px md:text-xs font-semibold">
           {{labelBtn}}
         </div>
       </div>

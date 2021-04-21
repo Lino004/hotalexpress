@@ -33,7 +33,7 @@
             <i class="mdi mdi-map-marker"></i>
           </span>
           <div class="flex-1">
-            <p class="font-medium">{{item.label}}</p>
+            <p style="font-size: 15px" class="font-medium">{{item.label}}</p>
             <p class="text-sm">{{item.subLabel}}</p>
           </div>
         </div>
