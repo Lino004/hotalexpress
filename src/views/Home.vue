@@ -76,7 +76,7 @@
         </div>
       </section>
       <section class="flex flex-col lg:flex-row items-center space-x-0 lg:space-x-20  justify-center my-20">
-        <img class="w-80 md:w-96" src="@/assets/images/illustrations/illustration1.png">
+        <img class="w-64 md:w-96" src="@/assets/images/illustrations/illustration1.png">
         <div class="w-80 md:w-96 text-center lg:text-left">
           <TabsBar
             :length="3"

@@ -6,7 +6,7 @@
         {{label}}
       </div>
       <div class="absolute bottom-0 w-full bg-gradient-to-t from-black flex items-center justify-between text-white p-2 font-semibold">
-        <div class="text-sm w-4/6 truncate">
+        <div class="text-sm w-4/6">
           {{title}}
         </div>
         <div class="bg-white bg-opacity-80 text-black py-1 px-2 shadow-box2 text-10px md:text-xs font-semibold">
