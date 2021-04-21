@@ -30,7 +30,8 @@ module.exports = {
       grid9: '#F8F8F8',
       grid13: '#ECECEC',
       grid15: '#00000067',
-      error: '#FCEDED'
+      error: '#FCEDED',
+      facebook: '#4080ff'
     }),
     borderColor: theme => ({
       ...theme('colors'),

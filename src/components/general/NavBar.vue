@@ -15,7 +15,7 @@
           <img src="@/assets/images/logo.svg" alt="" v-else>
         </div>
         <div class="flex items-center">
-          <div class="text-sm text-right mr-4 font-medium hidden md:flex" v-if="!home">
+          <div class="text-sm text-right mr-4 font-medium hidden md:flex" v-if="!home && !isPageSinginOrLogin">
             Delivery│Now <br>
             ▼ Rue de Brabant 230
           </div>
@@ -32,6 +32,7 @@
             Sign up or log in
           </button>
           <router-link
+            v-if="!home && !isPageSinginOrLogin"
             class="border rounded mr-4 py-1 px-2 hidden md:flex items-center"
             :class="{
               'border-white text-white': home,
@@ -89,6 +90,11 @@ export default {
   data () {
     return {
       showMenu: false
+    }
+  },
+  computed: {
+    isPageSinginOrLogin () {
+      return this.$route.name === 'SinginLogin'
     }
   },
   methods: {

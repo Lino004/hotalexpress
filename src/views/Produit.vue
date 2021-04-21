@@ -107,9 +107,6 @@ export default {
     }
   },
   computed: {
-    showResume () {
-      return this.itemSubProduit.some(el => el.show === true)
-    }
   },
   mounted () {}
 }
