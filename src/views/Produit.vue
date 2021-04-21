@@ -5,7 +5,7 @@
       <figure class="relative">
         <img width="100%" class="h-32 md:h-72 object-cover" :src="produit.img" alt="">
         <div class="absolute bottom-0 w-full">
-          <div class="container mx-auto w-full md:w-9/12 text-white text-1 md:text-4xl py-2">
+          <div class="container mx-auto w-full md:w-9/12 text-white text-1 md:text-4xl py-2 px-4">
             HalalBoucherie.be
           </div>
         </div>

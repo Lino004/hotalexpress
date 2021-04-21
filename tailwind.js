@@ -56,6 +56,12 @@ module.exports = {
       168: '168px',
       300: '350px'
     },
+    zIndex: {
+      1: '1',
+      10: '10',
+      20: '20',
+      30: '30'
+    },
     extend: {
       backgroundImage: theme => ({
       }),
@@ -65,7 +71,9 @@ module.exports = {
     }
   },
   variants: {
-    extend: {}
+    extend: {
+      borderWidth: ['hover']
+    }
   },
   plugins: [
     require('@tailwindcss/line-clamp'),

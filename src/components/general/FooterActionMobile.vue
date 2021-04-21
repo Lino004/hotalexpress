@@ -9,12 +9,12 @@
       <div class="flex-1">
         €0,00 · 0 Articles
       </div>
-      <div class="text-base" @click="showResume = true">
+      <div class="text-base" @click="showResume = modalMobileOpen = true">
         <span>
           <i class="mdi mdi-chevron-up"></i>
         </span>
       </div>
-      <div class="flex-1 text-right" @click="showDeliveryDetails = true">
+      <div class="flex-1 text-right" @click="showDeliveryDetails = modalMobileOpen = true">
         Delivery
       </div>
     </div>
@@ -25,25 +25,28 @@
         Rue de Brabant 230 As soon as possible
       </div>
     </div>
-    <div class="fixed w-full h-full bg-white top-0" v-if="showResume">
+    <div class="fixed z-20 w-full h-full bg-white top-0" v-if="showResume">
       <card-resume
         is-mobile
-        @back="showResume = false"
-        @close="showResume = false"
-        @go-to-checkout="showResume = false"/>
+        @back="showResume = modalMobileOpen = false"
+        @close="showResume = modalMobileOpen = false"
+        @go-to-checkout="showResume = modalMobileOpen = false"/>
     </div>
-    <div class="fixed w-full h-full bg-white top-0" v-if="showDeliveryDetails">
+    <div class="fixed z-20 w-full h-full bg-white top-0" v-if="showDeliveryDetails">
       <delivery-details
         is-mobile
-        @update="showDeliveryDetails = false"
-        @close="showDeliveryDetails = false"/>
+        @update="showDeliveryDetails = modalMobileOpen = false"
+        @close="showDeliveryDetails = modalMobileOpen = false"/>
     </div>
   </div>
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex'
 import CardResume from '@/components/produit/CardResume.vue'
 import DeliveryDetails from '@/components/cardResumeMobile/DeliveryDetails.vue'
+
+const Menu = createNamespacedHelpers('menu')
 
 export default {
   props: {
@@ -61,6 +64,24 @@ export default {
       showResume: false,
       showDeliveryDetails: false
     }
+  },
+  computed: {
+    ...Menu.mapGetters({
+      getModalMobileOpen: 'modalMobileOpen'
+    }),
+    modalMobileOpen: {
+      get () {
+        return this.getModalMobileOpen
+      },
+      set (val) {
+        this.setModalMobileOpen(val)
+      }
+    }
+  },
+  methods: {
+    ...Menu.mapMutations({
+      setModalMobileOpen: 'SET_MODAL_MOBILE_OPEN'
+    })
   }
 }
 </script>

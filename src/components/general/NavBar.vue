@@ -15,10 +15,6 @@
           <img src="@/assets/images/logo.svg" alt="" v-else>
         </div>
         <div class="flex items-center">
-          <div class="text-sm text-right mr-4 font-medium hidden md:flex" v-if="!home && !isPageSinginOrLogin">
-            Delivery│Now <br>
-            ▼ Rue de Brabant 230
-          </div>
           <button
             class="border rounded mr-4 py-1 px-2 hidden md:flex items-center"
             :class="{
