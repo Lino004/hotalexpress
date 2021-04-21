@@ -1,6 +1,7 @@
 function initialState () {
   return {
-    active: false
+    active: false,
+    activeMenuSingupLogin: false
   }
 }
 
@@ -11,6 +12,9 @@ const namespaced = true
 const mutations = {
   SET_ACTIVE: (state, val) => {
     state.active = val
+  },
+  SET_ACTIVE_MENU_SINGUP_LOGIN: (state, val) => {
+    state.activeMenuSingupLogin = val
   }
 }
 
@@ -18,7 +22,8 @@ const actions = {
 }
 
 const getters = {
-  active: (state) => state.active
+  active: (state) => state.active,
+  activeMenuSingupLogin: (state) => state.activeMenuSingupLogin
 }
 
 export default {

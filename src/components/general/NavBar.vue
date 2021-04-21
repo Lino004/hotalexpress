@@ -24,7 +24,8 @@
             :class="{
               'border-white text-white': home,
               'border-grid5': !home
-            }">
+            }"
+            @click="setActiveMenuSingupLogin(true)">
             <span class="mr-1" :class="{ 'text-grid2': !home }">
               <i class="mdi mdi-home-outline"></i>
             </span>
@@ -92,7 +93,8 @@ export default {
   },
   methods: {
     ...Menu.mapMutations({
-      setActive: 'SET_ACTIVE'
+      setActive: 'SET_ACTIVE',
+      setActiveMenuSingupLogin: 'SET_ACTIVE_MENU_SINGUP_LOGIN'
     })
   }
 }
