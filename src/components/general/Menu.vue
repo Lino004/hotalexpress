@@ -107,21 +107,21 @@
             </span>
           </div>
         </div>
-        <!-- <div class="flex md:hidden justify-between items-center border-b bg-white cursor-pointer border-grid5 px-4 py-2">
-          <div class="mr-2">
-            <span class="text-2xl text-grid7">
-              <i class="mdi mdi-help-circle-outline"></i>
-            </span>
+
+        <div class="flex md:hidden justify-between items-center border-b bg-white cursor-pointer border-grid5 px-4 py-2"
+          @click="showContryLanguage = true">
+          <div class="mr-2 ml-1">
+            <img width="20" src="@/assets/images/icons/english-language.svg" alt="">
           </div>
           <div class="flex-1">
-            <p>FAQ</p>
+            <p>English - Belgium</p>
           </div>
           <div>
             <span class="text-2xl text-grid2">
               <i class="mdi mdi-chevron-right"></i>
             </span>
           </div>
-        </div> -->
+        </div>
         <div class="p-4 bg-white border-b border-grid5 hidden md:block">
           <select class="form-select text-sm rounded border border-grid14 w-full mb-2">
             <option>English</option>
@@ -130,6 +130,11 @@
             <option>Belgium</option>
           </select>
         </div>
+      <div class="absolute top-0 w-full h-full md:w-96 bg-white" v-if="showContryLanguage">
+        <country-language
+          @update="showContryLanguage = false"
+          @close="showContryLanguage = false"/>
+      </div>
       </div>
     </div>
   </div>
@@ -137,14 +142,17 @@
 
 <script>
 import { createNamespacedHelpers } from 'vuex'
+import CountryLanguage from '../cardResumeMobile/CountryLanguage.vue'
 
 const Menu = createNamespacedHelpers('menu')
 
 export default {
   components: {
+    CountryLanguage
   },
   data () {
     return {
+      showContryLanguage: false
     }
   },
   computed: {
