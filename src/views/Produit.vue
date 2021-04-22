@@ -5,7 +5,7 @@
       <figure class="relative">
         <img width="100%" class="h-32 md:h-72 object-cover" :src="produit.img" alt="">
         <div class="absolute bottom-0 w-full">
-          <div class="container mx-auto w-full md:w-9/12 text-white text-1 md:text-4xl py-2 px-4">
+          <div class="container mx-auto w-full md:w-9/12 text-white text-1 md:text-4xl py-2 px-4 font-semibold md:font-normal">
             HalalBoucherie.be
           </div>
         </div>
@@ -22,7 +22,10 @@
         Rue des palais 308, Schaerbeek, 1030 Brussels • <a class="font-semibold underline">More information</a>
       </div>
     </section>
-    <section class="border-t border-b border-grid5 bg-white md:sticky top-0 z-10">
+    <section class="border-t border-b border-grid5 bg-white"
+      :class="{
+        'sticky top-0 z-10': !getModalMobileOpen
+      }">
       <div class="container mx-auto w-full md:w-9/12 p-4 flex space-x-4 relative">
         <button
           class="text-sm focus:outline-none"
@@ -49,6 +52,7 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex'
 import NavBar from '@/components/general/NavBar.vue'
 import Collapse from '@/components/produit/Collapse.vue'
 import Footer from '@/components/general/Footer.vue'
@@ -56,6 +60,8 @@ import CardResume from '@/components/produit/CardResume.vue'
 import FooterActionMobile from '@/components/general/FooterActionMobile.vue'
 
 import Boucherie from '@/assets/images/boucherie.png'
+
+const Menu = createNamespacedHelpers('menu')
 
 export default {
   components: {
@@ -107,6 +113,9 @@ export default {
     }
   },
   computed: {
+    ...Menu.mapGetters({
+      getModalMobileOpen: 'modalMobileOpen'
+    })
   },
   mounted () {}
 }

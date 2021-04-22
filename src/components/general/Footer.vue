@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-grid3 text-xs">
+  <div class="bg-grid3 text-xs pb-24 md:pb-0">
     <div class="container mx-auto w-full md:w-9/12 p-4 text-white">
       <div class="py-4 grid md:grid-cols-4 gap-4">
         <section>
@@ -92,12 +92,10 @@
         </div>
       </div>
     </div>
-    <FooterActionMobile :fixed="false" v-if="showFooterActionMobile"/>
   </div>
 </template>
 
 <script>
-import FooterActionMobile from '@/components/general/FooterActionMobile.vue'
 
 export default {
   props: {
@@ -107,7 +105,6 @@ export default {
     }
   },
   components: {
-    FooterActionMobile
   }
 }
 </script>

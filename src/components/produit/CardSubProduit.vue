@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full bg-white shadow-box3 h-32 flex p-1 hover:border-l-2 hover:border-grid11 cursor-pointer">
+    class="w-full bg-white shadow-box3 h-32 flex p-1 border-l-2 border-white hover:border-grid11 cursor-pointer">
     <div class="flex-1 p-2 flex flex-col justify-between">
       <div class="flex-1">
         <h4 class="text-sm font-medium">
