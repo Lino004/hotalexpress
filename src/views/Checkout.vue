@@ -8,37 +8,10 @@
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-9">
         <div class="lg:col-span-2">
           <div class="grid lg:grid-cols-2 gap-4 mb-4">
-            <div class="">
-              <h3 class="text-xl font-semibold mb-3.5">Delivery details</h3>
-              <div class="w-full h-36 rounded bg-white p-5 shadow-box2 text-sm">
-                <div class="flex justify-between items-center space-x-4">
-                  <div class="flex items-center space-x-2">
-                    <span class="text-lg text-black">
-                      <i class="mdi mdi-map-marker"></i>
-                    </span>
-                    <p class="text-grid10">
-                      From
-                      <span class="font-semibold underline">HalalBoucherie.be</span>
-                    </p>
-                  </div>
-                  <div class="text-grid12">
-                    View Map
-                  </div>
-                </div>
-                <div class="flex items-center space-x-2">
-                  <span class="text-lg text-black">
-                    <i class="mdi mdi-clock"></i>
-                  </span>
-                  <p class="text-grid10">
-                    Arriving in 3 hours
-                  </p>
-                </div>
-              </div>
-            </div>
             <div class="relative">
               <div class="flex justify-between items-center  mb-3.5">
                 <h3 class="text-xl font-semibold">Delivery details</h3>
-                <button class="text-sm font-medium bg-grid5 rounded-xl px-2 py-1">
+                <button class="text-sm font-medium bg-grid5 rounded-xl px-2 py-1" @click="addToModalView('DeliveryAddress')">
                   Edit
                 </button>
               </div>
@@ -71,12 +44,20 @@
                 </label>
                 <hr class="text-grid5 my-4" v-if="i !== itemsTime.length - 1">
               </div>
+              <div class="py-4" v-if="choiceTime === 1">
+                <select class="form-select text-sm rounded border border-grid14 w-full">
+                  <option>Today</option>
+                </select>
+                <select class="form-select text-sm rounded border border-grid14 w-full mt-2">
+                  <option>20:00 - 20:30</option>
+                </select>
+              </div>
             </div>
           </div>
           <div class="mb-10">
             <div class="flex justify-between items-center  mb-3.5">
               <h3 class="text-xl font-semibold">Payment</h3>
-              <button class="text-sm font-medium bg-grid5 rounded-xl px-2 py-1">
+              <button class="text-sm font-medium bg-grid5 rounded-xl px-2 py-1" @click="addToModalView('DeliveryDetails')">
                 Edit
               </button>
             </div>
@@ -215,6 +196,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import NavBar from '@/components/general/NavBar.vue'
 import Footer from '@/components/general/Footer.vue'
 import FooterActionMobile from '@/components/general/FooterActionMobile.vue'
@@ -241,6 +223,11 @@ export default {
         'Wallet'
       ]
     }
+  },
+  methods: {
+    ...mapMutations({
+      addToModalView: 'ADD_TO_MODAL_VIEW'
+    })
   }
 }
 </script>

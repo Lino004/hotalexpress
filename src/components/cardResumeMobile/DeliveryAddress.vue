@@ -1,9 +1,9 @@
 <template>
-  <div class="relative h-full flex flex-col">
+  <div class="absolute top-0 w-full h-full bg-white flex flex-col">
     <div class="flex-1 overflow-y-auto">
       <div class="hidden md:flex p-4 justify-between bg-white">
         <img src="@/assets/images/logo.svg" alt="">
-        <button @click="$emit('close')">
+        <button @click="removeToModalView('DeliveryAddress')">
           <span class="text-xl text-grid2">
             <i class="mdi mdi-close"></i>
           </span>
@@ -14,7 +14,7 @@
         <h4 class="font-semibold">
           Delivery address
         </h4>
-        <button class="md:hidden" @click="$emit('close')">
+        <button class="md:hidden" @click="removeToModalView('DeliveryAddress')">
           <span>
             <i class="mdi mdi-close"></i>
           </span>
@@ -88,8 +88,7 @@
     </div>
     <div class="p-4">
       <button
-        v-if="isMobile"
-        @click="$emit('update')"
+        @click="removeToModalView('DeliveryAddress')"
         class="w-full text-center border border-grid14 py-2 rounded text-grid12 font-semibold text-sm mt-2">
         Update
       </button>
@@ -98,6 +97,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import CustomInput from '../custom-form/CustomInput.vue'
 
 export default {
@@ -110,6 +110,11 @@ export default {
   },
   data () {
     return {}
+  },
+  methods: {
+    ...mapMutations({
+      removeToModalView: 'REMOVE_TO_MODAL_VIEW'
+    })
   }
 }
 </script>

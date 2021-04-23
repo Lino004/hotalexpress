@@ -9,13 +9,13 @@
       <div class="flex-1">
         €0,00 · 0 Articles
       </div>
-      <div class="text-base" @click="showResume = modalMobileOpen = true">
+      <div class="text-base" @click="addToModalView('CardResume')">
         <span>
           <i class="mdi mdi-chevron-up"></i>
         </span>
       </div>
       <div class="flex-1 text-right">
-        <a @click="showDeliveryDetails = modalMobileOpen = true">Delivery</a>
+        <a @click="addToModalView('DeliveryDetails')">Delivery</a>
       </div>
     </div>
     <hr class="text-grid5">
@@ -25,26 +25,11 @@
         Rue de Brabant 230 As soon as possible
       </div>
     </div>
-    <div class="fixed z-20 w-full h-full bg-white top-0" v-if="showResume">
-      <card-resume
-        is-mobile
-        @back="showResume = modalMobileOpen = false"
-        @close="showResume = modalMobileOpen = false"
-        @go-to-checkout="showResume = modalMobileOpen = false"/>
-    </div>
-    <div class="fixed z-20 w-full h-full bg-white top-0" v-if="showDeliveryDetails">
-      <delivery-details
-        is-mobile
-        @update="showDeliveryDetails = modalMobileOpen = false"
-        @close="showDeliveryDetails = modalMobileOpen = false"/>
-    </div>
   </div>
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex'
-import CardResume from '@/components/produit/CardResume.vue'
-import DeliveryDetails from '@/components/cardResumeMobile/DeliveryDetails.vue'
+import { createNamespacedHelpers, mapMutations } from 'vuex'
 
 const Menu = createNamespacedHelpers('menu')
 
@@ -56,8 +41,6 @@ export default {
     }
   },
   components: {
-    CardResume,
-    DeliveryDetails
   },
   data () {
     return {
@@ -79,6 +62,9 @@ export default {
     }
   },
   methods: {
+    ...mapMutations({
+      addToModalView: 'ADD_TO_MODAL_VIEW'
+    }),
     ...Menu.mapMutations({
       setModalMobileOpen: 'SET_MODAL_MOBILE_OPEN'
     })

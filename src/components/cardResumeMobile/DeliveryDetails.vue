@@ -1,9 +1,9 @@
 <template>
-  <div class="relative h-full flex flex-col">
+  <div class="absolute top-0 w-full h-full bg-white flex flex-col">
     <div class="flex-1 overflow-y-auto">
       <div class="hidden md:flex p-4 justify-between bg-white">
         <img src="@/assets/images/logo.svg" alt="">
-        <button  @click="$emit('close')">
+        <button  @click="removeToModalView('DeliveryDetails')">
           <span class="text-xl text-grid2">
             <i class="mdi mdi-close"></i>
           </span>
@@ -14,7 +14,7 @@
         <h4 class="font-semibold">
           Delivery details
         </h4>
-        <button class="md:hidden" @click="$emit('close')">
+        <button class="md:hidden" @click="removeToModalView('DeliveryDetails')">
           <span>
             <i class="mdi mdi-close"></i>
           </span>
@@ -52,7 +52,7 @@
           <div>
             <a
               class="text-grid2 text-xs font-medium cursor-pointer"
-              @click="showDeliveryAddress = true">
+              @click="addToModalView('DeliveryAddress')">
               Change
             </a>
           </div>
@@ -72,7 +72,7 @@
           <div>
             <a
               class="text-grid2 text-xs font-medium cursor-pointer"
-              @click="showDeliveryTime = true">
+              @click="addToModalView('DeliveryTime')">
               Change
             </a>
           </div>
@@ -89,38 +89,22 @@
     </div>
     <div class="p-4">
       <button
-        v-if="isMobile"
-        @click="$emit('update')"
+        @click="removeToModalView('DeliveryDetails')"
         class="w-full text-center border border-grid14 py-2 rounded text-grid12 font-semibold text-sm mt-2">
         Update
       </button>
-    </div>
-    <div class="absolute w-full h-full bg-white top-0" v-if="showDeliveryAddress">
-      <delivery-address
-        is-mobile
-        @update="showDeliveryAddress = false"
-        @close="showDeliveryAddress = false"/>
-    </div>
-    <div class="absolute w-full h-full bg-white top-0" v-if="showDeliveryTime">
-      <delivery-time
-        is-mobile
-        @update="showDeliveryTime = false"
-        @close="showDeliveryTime = false"/>
     </div>
   </div>
 </template>
 
 <script>
-import DeliveryAddress from './DeliveryAddress.vue'
-import DeliveryTime from './DeliveryTime.vue'
+import { mapMutations } from 'vuex'
 
 export default {
   props: {
     isMobile: Boolean
   },
   components: {
-    DeliveryAddress,
-    DeliveryTime
   },
   data () {
     return {
@@ -128,6 +112,12 @@ export default {
       showDeliveryAddress: false,
       showDeliveryTime: false
     }
+  },
+  methods: {
+    ...mapMutations({
+      removeToModalView: 'REMOVE_TO_MODAL_VIEW',
+      addToModalView: 'ADD_TO_MODAL_VIEW'
+    })
   }
 }
 </script>

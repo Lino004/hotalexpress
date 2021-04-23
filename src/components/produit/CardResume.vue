@@ -5,7 +5,7 @@
         <h4 class="font-semibold">
           My Basket
         </h4>
-        <button class="md:hidden" @click="$emit('close')">
+        <button class="md:hidden" @click="removeToModalView('CardResume')">
           <span>
             <i class="mdi mdi-close"></i>
           </span>
@@ -105,7 +105,7 @@
           <div>
             <a
               class="text-grid2 cursor-pointer"
-              @click="actionShowDeliveryDetails">change</a>
+              @click="addToModalView('DeliveryDetails')">change</a>
           </div>
         </div>
         <hr class="text-grid5">
@@ -117,38 +117,26 @@
     </div>
     <div class="p-4">
       <button
-        @click="$emit('go-to-checkout')"
         class="w-full text-center border-2 border-grid11 py-2 rounded text-grid12 font-semibold text-sm">
         Go to checkout
       </button>
       <button
         v-if="isMobile"
-        @click="$emit('back')"
         class="w-full text-center border border-grid14 py-2 rounded text-grid12 font-semibold text-sm mt-2">
         Back
       </button>
-    </div>
-    <div class="fixed w-full h-full xs:bg-white md:bg-grid15 top-0 left-0 md:flex" v-if="showDeliveryDetails">
-      <div class="hidden md:block md:flex-1"></div>
-      <div class="w-full h-full md:w-96 bg-white">
-        <delivery-details
-          is-mobile
-          @update="showDeliveryDetails = false"
-          @close="showDeliveryDetails = false"/>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
-import DeliveryDetails from '@/components/cardResumeMobile/DeliveryDetails.vue'
+import { mapMutations } from 'vuex'
 
 export default {
   props: {
     isMobile: Boolean
   },
   components: {
-    DeliveryDetails
   },
   data () {
     return {
@@ -156,10 +144,12 @@ export default {
     }
   },
   methods: {
+    ...mapMutations({
+      removeToModalView: 'REMOVE_TO_MODAL_VIEW',
+      addToModalView: 'ADD_TO_MODAL_VIEW'
+    }),
     actionShowDeliveryDetails () {
-      // if (this.isMobile) {
       this.showDeliveryDetails = true
-      // }
     }
   }
 }

@@ -130,11 +130,11 @@
             <option>Belgium</option>
           </select>
         </div>
-      <div class="absolute top-0 w-full h-full md:w-96 bg-white" v-if="showContryLanguage">
-        <country-language
-          @update="showContryLanguage = false"
-          @close="showContryLanguage = false"/>
-      </div>
+        <div class="absolute top-0 w-full h-full md:w-96 bg-white" v-if="showContryLanguage">
+          <country-language
+            @update="showContryLanguage = false"
+            @close="showContryLanguage = false"/>
+        </div>
       </div>
     </div>
   </div>
