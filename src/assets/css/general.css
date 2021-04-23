@@ -7,10 +7,37 @@
   }
 }
 html, body {
-  overflow: hidden;
-  -ms-overflow: hidden;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  overflow: hidden !important;
+  -ms-overflow: hidden !important;
+  margin: 0;
+  padding: 0;
 }
 #app {
   overflow-y: auto;
   height: 100vh;
+}
+.custom-underline:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #000;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+.custom-underline[active]:after { 
+  width: 100%; 
+  left: 0; 
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to{
+  opacity: 0;
 }

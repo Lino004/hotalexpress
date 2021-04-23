@@ -1,6 +1,6 @@
 <template>
   <div
-    class="md:hidden bottom-0 w-full bg-white"
+    class="md:hidden bottom-0 w-full bg-white" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"
     :class="{
       fixed: fixed
     }">
@@ -14,8 +14,8 @@
           <i class="mdi mdi-chevron-up"></i>
         </span>
       </div>
-      <div class="flex-1 text-right" @click="showDeliveryDetails = modalMobileOpen = true">
-        Delivery
+      <div class="flex-1 text-right">
+        <a @click="showDeliveryDetails = modalMobileOpen = true">Delivery</a>
       </div>
     </div>
     <hr class="text-grid5">

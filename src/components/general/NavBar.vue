@@ -35,7 +35,7 @@
               'border-grid5': !home
             }"
             tag="button"
-            :to="{ name: 'Produit' }">
+            :to="{ name: 'Store' }">
             <span class="mr-1" :class="{ 'text-grid2': !home }">
               <i class="mdi mdi-cart"></i>
             </span>

@@ -1,15 +1,20 @@
 <template>
-  <div class="bg-grid3 text-xs pb-24 md:pb-0">
+  <div class="bg-grid3 text-xs pb-32 md:pb-0">
     <div class="container mx-auto w-full md:w-9/12 p-4 text-white">
-      <div class="py-4 grid md:grid-cols-4 gap-4">
-        <section>
+      <div class="py-4">
+        <section class="md:text-center md:w-1/2 mx-auto">
           <h4 class="font-medium mb-2">
-            About Halal Express
+            ABOUT HALAL EXPRESS
           </h4>
           <p class="mb-2">
             Halal Express, found on 2020, is a grocery ordering platform based on halal market in Belgium and France. Combining same day delivery and easy-to-order.
           </p>
-          <div class="flex items-center">
+        </section>
+        <section class="md:text-center md:w-1/2 mx-auto my-4">
+          <h4 class="font-medium mb-2">
+            DOWNLOAD THE APP
+          </h4>
+          <div class="flex items-center md:justify-center">
             <button class="border border-white rounded mr-2 py-1 px-2 text-white flex items-center">
               IOS
               <span class="ml-1">
@@ -24,71 +29,30 @@
             </button>
           </div>
         </section>
-        <section>
-          <h4 class="font-medium mb-2">
-            My halal express
-          </h4>
+        <section class="md:text-center md:w-1/2 mx-auto">
           <div>
-            <a class="block">About us</a>
-            <a class="block">My account</a>
-            <a class="block">Download Halal Express</a>
-            <a class="block">Compliments & complaints</a>
-            <a class="block">FAQ</a>
-            <a class="block">Contact</a>
+            <a>Contact</a> |
+            <a>FAQ</a> |
+            <a>Site map</a>
           </div>
-        </section>
-        <section>
-          <h4 class="font-medium mb-2">
-            Enterprise
-          </h4>
           <div>
-            <a class="block">Partner</a>
-            <a class="block">Store manager dashboard</a>
-            <a class="block">Download store manager</a>
-            <a class="block">Become a vendor</a>
-            <a class="block">Enterprise store</a>
-            <a class="block">FAQ Enterprise</a>
-            <a class="block">Contact Enterprise</a>
-          </div>
-        </section>
-        <section>
-          <h4 class="font-medium mb-2">
-            Enterprise
-          </h4>
-          <div class="flex space-x-2">
-            <a class="bg-grid4 px-1 rounded">
-              <span class="">
-                <i class="mdi mdi-instagram"></i>
-              </span>
-            </a>
-            <a class="bg-grid4 px-1 rounded">
-              <span class="">
-                <i class="mdi mdi-facebook"></i>
-              </span>
-            </a>
-            <a class="bg-grid4 px-1 rounded">
-              <span class="">
-                <i class="mdi mdi-whatsapp"></i>
-              </span>
-            </a>
-            <a class="bg-grid4 px-1 rounded">
-              <span class="">
-                <i class="mdi mdi-email-outline"></i>
-              </span>
-            </a>
+            <a>Termes et conditions</a> |
+            <a>Privaty</a> |
+            <a>Coockies</a>
           </div>
         </section>
       </div>
       <hr>
       <div class="py-4 flex justify-between items-center">
         <div>
-          <div class="bg-white inline-block h-9 w-14 rounded mr-2"></div>
-          <div class="bg-white inline-block h-9 w-14 rounded mr-2"></div>
-          <div class="bg-white inline-block h-9 w-14 rounded mr-2"></div>
-          <div class="bg-white inline-block h-9 w-14 rounded mr-2"></div>
+          <img class="inline-block w-8 mr-1 md:w-12" src="@/assets/images/icons/bancontact.svg" alt="">
+          <img class="inline-block w-8 mr-1 md:w-12" src="@/assets/images/icons/maestro.svg" alt="">
+          <img class="inline-block w-8 mr-1 md:w-12" src="@/assets/images/icons/mastercard.svg" alt="">
+          <img class="inline-block w-8 mr-1 md:w-12" src="@/assets/images/icons/paypal.svg" alt="">
+          <img class="inline-block w-8 mr-1 md:w-12" src="@/assets/images/icons/visa.svg" alt="">
         </div>
-        <div>
-          Termes et conditions | Politique de confidentialité | © HalalExpress
+        <div class="flex-auto text-right">
+          2021 | © HalalExpress
         </div>
       </div>
     </div>

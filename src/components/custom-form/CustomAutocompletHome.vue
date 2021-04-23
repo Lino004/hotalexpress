@@ -7,7 +7,7 @@
         'rounded-b-none': show
       }">
       <span class="mr-1 text-gray-400">
-        <i class="mdi mdi-send"></i>
+        <i class="mdi mdi-map-marker"></i>
       </span>
       <input
         class="flex-1 border border-transparent focus:outline-none focus:border-transparent"

@@ -15,19 +15,19 @@ const routes = [
     component: () => import('../views/SinginLogin.vue')
   },
   {
+    path: '/store-list',
+    name: 'StoreList',
+    component: () => import('../views/StoreList.vue')
+  },
+  {
     path: '/store',
     name: 'Store',
     component: () => import('../views/Store.vue')
   },
   {
-    path: '/produit',
-    name: 'Produit',
-    component: () => import('../views/Produit.vue')
-  },
-  {
-    path: '/checkout',
-    name: 'Checkout',
-    component: () => import('../views/Checkout.vue')
+    path: '/basket',
+    name: 'Basket',
+    component: () => import('../views/Basket.vue')
   }
 ]
 

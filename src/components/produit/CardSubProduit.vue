@@ -20,9 +20,9 @@
       </div>
     </div>
     <div
-      class="w-32 h-full relative"
+      class="h-full relative"
       :class="{
-        'bg-grid13': !noImg
+        'bg-grid13 w-32': !noImg
       }">
       <button
         class="absolute bottom-0 right-0 px-1"

@@ -1,37 +1,61 @@
 <template>
   <div>
     <NavBar/>
-    <hr class="text-grid5">
-    <section
-      class="container mx-auto w-full md:w-9/12 p-4 md:p-4 text-center flex flex-nowrap overflow-x-auto md:justify-center bg-white"
+    <div>
+      <figure class="relative">
+        <img width="100%" class="h-32 md:h-72 object-cover" :src="produit.img" alt="">
+        <div class="absolute bottom-0 w-full">
+          <div class="container mx-auto w-full md:w-9/12 text-white text-1 md:text-4xl py-2 px-4 font-semibold md:font-normal">
+            HalalBoucherie.be
+          </div>
+        </div>
+      </figure>
+    </div>
+    <section class="container mx-auto w-full md:w-9/12 p-4">
+      <div class="text-sm font-medium pb-1">
+        4.9 (500+ Reviews)
+      </div>
+      <div class="text-sm text-grid1 font-medium">
+        Butcher • Delivery in 3 hours • Click’n collect
+      </div>
+      <div class="text-sm font-medium">
+        Rue des palais 308, Schaerbeek, 1030 Brussels • <a class="font-semibold underline">More information</a>
+      </div>
+    </section>
+    <section class="border-t border-b border-grid5 bg-white"
       :class="{
         'sticky top-0 z-10': !getModalMobileOpen
       }">
-      <button
-        class="flex-none rounded-3xl text-sm md:bg-grid5 p-2 mr-2 font-medium focus:outline-none"
-        :class="{
-          'underline md:no-underline md:bg-grid6': currentItem === i
-        }"
-        v-for="(item, i) in itemCategories" :key="i"
-        @click="currentItem = i">
-        {{item}}
-      </button>
-    </section>
-    <div class="md:flex justify-center hidden">
-      <hr class="text-grid5 w-5/6">
-    </div>
-    <section class="container mx-auto w-full md:w-9/12 p-4 pt-0">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div v-for="(item, i) in itemsProduit" :key="i">
-          <CardProduit
-            :title="item.title"
-            :label="item.label"
-            :description="item.description"
-            :label-btn="item.labelBtn"
-            :img="item.img"/>
+      <div class="container mx-auto w-full md:w-9/12 p-4 flex space-x-4 relative">
+        <button
+          class="text-sm focus:outline-none relative custom-underline"
+          v-for="(item, i) in itemCategorie" :key="i"
+          :class="{
+            'font-medium': i === currentItemCategorie,
+            'text-grid8': i !== currentItemCategorie,
+          }"
+          :active="i === currentItemCategorie"
+          @click="currentItemCategorie = i">
+          <span>
+            {{item.name}}
+          </span>
+        </button>
+        <div class="absolute w-1/3 right-0 shadow-box1 bg-white hidden lg:block">
+          <card-resume/>
         </div>
       </div>
     </section>
+    <transition
+      name="custom-classes-transition"
+      enter-active-class="animated fadeIn"
+      v-for="(cat, i) in itemCategorie" :key="i">
+      <div v-if="i === currentItemCategorie">
+        <collapse
+          v-for="(item, i) in cat.items"
+          :key="`${i}listcat`"
+          :data="item"/>
+      </div>
+    </transition>
     <Footer show-footer-action-mobile/>
     <FooterActionMobile/>
   </div>
@@ -40,127 +64,112 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 import NavBar from '@/components/general/NavBar.vue'
-import CardProduit from '@/components/general/CardProduit.vue'
+import Collapse from '@/components/produit/Collapse.vue'
 import Footer from '@/components/general/Footer.vue'
+import CardResume from '@/components/produit/CardResume.vue'
 import FooterActionMobile from '@/components/general/FooterActionMobile.vue'
 
 import Boucherie from '@/assets/images/boucherie.png'
-import Boucherie2 from '@/assets/images/boucherie2.png'
-import Boucherie3 from '@/assets/images/boucherie3.png'
 
 const Menu = createNamespacedHelpers('menu')
+
+const itemDefault = [
+  {
+    title: 'Lamb',
+    show: true
+  },
+  {
+    title: 'Poultry',
+    show: false
+  },
+  {
+    title: 'Beef',
+    show: false
+  },
+  {
+    title: 'BBQ',
+    show: false
+  },
+  {
+    title: 'Sausage',
+    show: false
+  },
+  {
+    title: 'Hamburgers',
+    show: false
+  }
+]
 
 export default {
   components: {
     NavBar,
-    CardProduit,
+    Collapse,
     Footer,
+    CardResume,
     FooterActionMobile
   },
   data () {
     return {
-      itemCategories: [
-        'All',
-        'Butchers',
-        'Supermarkets',
-        'Fish stores',
-        'Bakeries',
-        'Restaurants'
-      ],
-      itemsProduit: [
+      produit: {
+        img: Boucherie
+      },
+      itemCategorie: [
         {
-          label: 'Free Delivery',
-          title: 'Boucherie Uccle Marvelstraat',
-          description: 'Butcher · Delivery in 3 hours · Click’n collect · 4.8 (500+ Reviews)',
-          labelBtn: '3 Hours',
-          img: Boucherie2
+          name: 'Meat',
+          items: itemDefault
         },
         {
-          label: '€5 Discount',
-          title: 'HalalBoucherie.be',
-          description: 'Butcher · Delivery in 3 hours · Click’n collect · 4.8 (500+ Reviews)',
-          labelBtn: 'Tomorrow',
-          img: Boucherie3
+          name: 'Fish',
+          items: itemDefault
         },
         {
-          label: '',
-          title: 'Boucherie Hamid Ninove',
-          description: 'Butcher · Delivery in 3 hours · Click’n collect · 4.8 (500+ Reviews)',
-          labelBtn: '3 Hours',
-          img: Boucherie
+          name: 'Vegetables',
+          items: itemDefault
         },
         {
-          label: 'Free Delivery',
-          title: 'Boucherie Uccle Marvelstraat',
-          description: 'Butcher · Delivery in 3 hours · Click’n collect · 4.8 (500+ Reviews)',
-          labelBtn: '3 Hours',
-          img: Boucherie2
+          name: 'Bread',
+          items: itemDefault
         },
         {
-          label: '€5 Discount',
-          title: 'HalalBoucherie.be',
-          description: 'Butcher · Delivery in 3 hours · Click’n collect · 4.8 (500+ Reviews)',
-          labelBtn: 'Tomorrow',
-          img: Boucherie3
-        },
-        {
-          label: '',
-          title: 'Boucherie Hamid Ninove',
-          description: 'Butcher · Delivery in 3 hours · Click’n collect · 4.8 (500+ Reviews)',
-          labelBtn: '3 Hours',
-          img: Boucherie
-        },
-        {
-          label: 'Free Delivery',
-          title: 'Boucherie Uccle Marvelstraat',
-          description: 'Butcher · Delivery in 3 hours · Click’n collect · 4.8 (500+ Reviews)',
-          labelBtn: '3 Hours',
-          img: Boucherie2
-        },
-        {
-          label: '€5 Discount',
-          title: 'HalalBoucherie.be',
-          description: 'Butcher · Delivery in 3 hours · Click’n collect · 4.8 (500+ Reviews)',
-          labelBtn: 'Tomorrow',
-          img: Boucherie3
-        },
-        {
-          label: '',
-          title: 'Boucherie Hamid Ninove',
-          description: 'Butcher · Delivery in 3 hours · Click’n collect · 4.8 (500+ Reviews)',
-          labelBtn: '3 Hours',
-          img: Boucherie
-        },
-        {
-          label: 'Free Delivery',
-          title: 'Boucherie Uccle Marvelstraat',
-          description: 'Butcher · Delivery in 3 hours · Click’n collect · 4.8 (500+ Reviews)',
-          labelBtn: '3 Hours',
-          img: Boucherie2
-        },
-        {
-          label: '€5 Discount',
-          title: 'HalalBoucherie.be',
-          description: 'Butcher · Delivery in 3 hours · Click’n collect · 4.8 (500+ Reviews)',
-          labelBtn: 'Tomorrow',
-          img: Boucherie3
-        },
-        {
-          label: '',
-          title: 'Boucherie Hamid Ninove',
-          description: 'Butcher · Delivery in 3 hours · Click’n collect · 4.8 (500+ Reviews)',
-          labelBtn: '3 Hours',
-          img: Boucherie
+          name: 'Spices',
+          items: itemDefault
         }
       ],
-      currentItem: 1
+      currentItemCategorie: 0,
+      itemSubProduit: [
+        {
+          title: 'Lamb',
+          show: true
+        },
+        {
+          title: 'Poultry',
+          show: false
+        },
+        {
+          title: 'Beef',
+          show: false
+        },
+        {
+          title: 'BBQ',
+          show: false
+        },
+        {
+          title: 'Sausage',
+          show: false
+        },
+        {
+          title: 'Hamburgers',
+          show: false
+        }
+      ]
     }
   },
   computed: {
     ...Menu.mapGetters({
       getModalMobileOpen: 'modalMobileOpen'
     })
-  }
+  },
+  mounted () {}
 }
 </script>
 
