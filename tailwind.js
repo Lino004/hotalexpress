@@ -17,7 +17,8 @@ module.exports = {
       grid7: '#848484',
       grid8: '#7E868D',
       grid10: '#696969',
-      grid12: '#EF595A'
+      grid12: '#EF595A',
+      grid16: '#03DE73'
     }),
     backgroundColor: theme => ({
       ...theme('colors'),
@@ -30,6 +31,8 @@ module.exports = {
       grid9: '#F8F8F8',
       grid13: '#ECECEC',
       grid15: '#00000067',
+      grid16: '#03DE73',
+      grid17: '#FEF0E2',
       error: '#FCEDED',
       facebook: '#4080ff'
     }),

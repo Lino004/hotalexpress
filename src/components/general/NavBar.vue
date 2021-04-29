@@ -10,10 +10,10 @@
         'h-16': !home
       }">
       <div class="flex justify-between content-center">
-        <div class="">
+        <router-link :to="{ name: 'Home' }">
           <img src="@/assets/images/logo-white.svg" alt="" v-if="home">
           <img src="@/assets/images/logo.svg" alt="" v-else>
-        </div>
+        </router-link>
         <div class="flex items-center">
           <button
             class="border rounded mr-4 py-1 px-2 hidden md:flex items-center"
@@ -21,7 +21,7 @@
               'border-white text-white': home,
               'border-grid5': !home
             }"
-            @click="setActiveMenuSingupLogin(true)">
+            @click="addToModalView('MenuSingupLogin')">
             <span class="mr-1" :class="{ 'text-grid2': !home }">
               <i class="mdi mdi-home-outline"></i>
             </span>
@@ -47,7 +47,7 @@
               'border-white text-white': home,
               'border-grid5': !home
             }"
-            @click="setActive(true)">
+            @click="addToModalView('MenuApp')">
             <span class="mr-1" :class="{ 'text-grid2': !home }">
               <i class="mdi mdi-menu"></i>
             </span>
@@ -59,7 +59,7 @@
               'text-white': home,
               'border border-grid5 py-1 px-2': !home
             }"
-            @click="setActive(true)">
+            @click="addToModalView('MenuApp')">
             <span :class="{
               'text-grid2': !home,
               'text-3xl': home
@@ -75,9 +75,7 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex'
-
-const Menu = createNamespacedHelpers('menu')
+import { mapMutations } from 'vuex'
 
 export default {
   props: {
@@ -94,9 +92,8 @@ export default {
     }
   },
   methods: {
-    ...Menu.mapMutations({
-      setActive: 'SET_ACTIVE',
-      setActiveMenuSingupLogin: 'SET_ACTIVE_MENU_SINGUP_LOGIN'
+    ...mapMutations({
+      addToModalView: 'ADD_TO_MODAL_VIEW'
     })
   }
 }

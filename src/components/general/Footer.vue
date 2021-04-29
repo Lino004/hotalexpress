@@ -1,27 +1,27 @@
 <template>
-  <div class="bg-grid3 text-xs pb-32 md:pb-0">
+  <div class="bg-grid3 text-xs pb-20 md:pb-0">
     <div class="container mx-auto w-full md:w-9/12 p-4 text-white">
-      <div class="py-4">
+      <div class="py-4 md:flex">
         <section class="md:text-center md:w-1/2 mx-auto">
-          <h4 class="font-medium mb-2">
+          <h4 class="font-semibold mb-2">
             ABOUT HALAL EXPRESS
           </h4>
           <p class="mb-2">
             Halal Express, found on 2020, is a grocery ordering platform based on halal market in Belgium and France. Combining same day delivery and easy-to-order.
           </p>
         </section>
-        <section class="md:text-center md:w-1/2 mx-auto my-4">
-          <h4 class="font-medium mb-2">
+        <section class="md:w-1/2 mx-auto my-4 md:my-0 md:order-first">
+          <h4 class="font-semibold mb-2">
             DOWNLOAD THE APP
           </h4>
-          <div class="flex items-center md:justify-center">
-            <button class="border border-white rounded mr-2 py-1 px-2 text-white flex items-center">
+          <div class="flex items-center">
+            <button class="border border-white rounded mr-2 py-1 px-2 md:px-4 text-white flex items-center">
               IOS
               <span class="ml-1">
                 <i class="mdi mdi-apple"></i>
               </span>
             </button>
-            <button class="border border-white rounded py-1 px-2 text-white flex items-center">
+            <button class="border border-white rounded py-1 px-2 md:px-4 text-white flex items-center">
               Android
               <span class="ml-1">
                 <i class="mdi mdi-google-play"></i>
@@ -29,7 +29,10 @@
             </button>
           </div>
         </section>
-        <section class="md:text-center md:w-1/2 mx-auto">
+        <section class="md:text-right md:w-1/2 mx-auto">
+          <h4 class="hidden md:inline-block font-semibold mb-2">
+            HELP & LEGAL
+          </h4>
           <div>
             <a>Contact</a> |
             <a>FAQ</a> |

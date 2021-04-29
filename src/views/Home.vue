@@ -64,7 +64,7 @@
           </div>
         </div>
         <div class="flex overflow-x-auto xl:grid xl:grid-cols-3 gap-4 py-2.5">
-          <div v-for="(item, i) in itemsProduit" :key="i">
+          <router-link class="block" :to="{ name: 'Store' }" v-for="(item, i) in itemsProduit" :key="i">
             <CardProduit
               :title="item.title"
               :label="item.label"
@@ -72,21 +72,65 @@
               :label-btn="item.labelBtn"
               :img="item.img"
               custom-class="min-w-300 ml-2 md:ml-0"/>
-          </div>
+          </router-link>
         </div>
       </section>
       <section class="flex flex-col lg:flex-row items-center space-x-0 lg:space-x-20  justify-center my-20">
-        <img class="w-64 md:w-96" src="@/assets/images/illustrations/illustration1.png">
-        <div class="w-80 md:w-96 text-center lg:text-left mt-3">
-          <TabsBar
+        <div class="relative w-64 md:w-96 h-48 md:h-64">
+          <img v-show="currentVector === 1" class="animated fadeIn absolute w-64 md:w-96" src="@/assets/images/illustrations/illustration1.svg">
+          <img v-show="currentVector === 2" class="animated fadeIn absolute w-64 md:w-96" src="@/assets/images/illustrations/illustration2.svg">
+          <img v-show="currentVector === 3" class="animated fadeIn absolute w-64 md:w-96" src="@/assets/images/illustrations/illustration3.svg">
+        </div>
+        <div class="w-80 md:w-96 text-center lg:text-left mt-3 h-48 md:h-64">
+          <tabs-bar
             :length="3"
-            :value="1"/>
-          <h1 class="text-xl md:text-3xl font-semibold">
-            Commandez et faites vous livrer dans les 3 heures
-          </h1>
-          <p class="text-sm md:text-base">
-            Immédiatement après votre commande, vos produits sont préparés et livrés à votre convenance.
-          </p>
+            v-model="currentVector"/>
+          <div v-if="currentVector === 1">
+            <h1 class="text-xl md:text-3xl font-semibold">
+              Commandez et faites vous livrer dans les 3 heures
+            </h1>
+            <p class="text-sm md:text-base">
+              Immédiatement après votre commande, vos produits sont préparés et livrés à votre convenance.
+            </p>
+          </div>
+          <div v-if="currentVector === 2">
+            <h1 class="text-xl md:text-3xl font-semibold">
+              Téléchargez l’application maintenant
+            </h1>
+            <p class="text-sm md:text-base">
+              Téléchargez notre application Android ou iOS maintenant et commandez encore plus facilement!
+            </p>
+            <div class="flex justify-center md:justify-start">
+              <button
+                class="border border-white
+                       bg-gradient-to-r from-grid2 to-grid1
+                       rounded mr-2 py-1 px-2 md:px-4
+                       text-white flex items-center">
+                IOS
+                <span class="ml-1">
+                  <i class="mdi mdi-apple"></i>
+                </span>
+              </button>
+              <button
+                class="border border-white
+                       bg-gradient-to-r from-grid2 to-grid1
+                       rounded py-1 px-2 md:px-4
+                       text-white flex items-center">
+                Android
+                <span class="ml-1">
+                  <i class="mdi mdi-google-play"></i>
+                </span>
+              </button>
+            </div>
+          </div>
+          <div v-if="currentVector === 3">
+            <h1 class="text-xl md:text-3xl font-semibold">
+              Rapidité et qualité
+            </h1>
+            <p class="text-sm md:text-base">
+              Dans un soucis de satisfaction, nous sélectionnons nos prestataires suivants des critères de qualités très strictes.
+            </p>
+          </div>
         </div>
       </section>
       <section class="mb-20">
@@ -96,11 +140,11 @@
           </h1>
           <TabsBar
             :length="3"
-            :value="2"
+            :value="1"
             class=""/>
         </div>
         <div class="flex overflow-x-auto xl:grid xl:grid-cols-3 gap-4 py-2.5 ">
-          <div v-for="(item, i) in itemsProduit" :key="i">
+          <router-link class="block" :to="{ name: 'Store' }" v-for="(item, i) in itemsProduit" :key="i">
             <CardProduit
               :title="item.title"
               :label="item.label"
@@ -108,7 +152,7 @@
               :label-btn="item.labelBtn"
               :img="item.img"
               custom-class="min-w-300 ml-2 md:ml-0"/>
-          </div>
+          </router-link>
         </div>
       </section>
     </div>
@@ -193,7 +237,9 @@ export default {
           img: Boucherie
         }
       ],
-      choiceDelivery: 0
+      choiceDelivery: 0,
+      currentVector: 1,
+      show: true
     }
   }
 }

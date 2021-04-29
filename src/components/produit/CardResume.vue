@@ -1,5 +1,10 @@
 <template>
-  <div class="relative h-full flex flex-col">
+  <transition :leave-active-class="`animated ${$device.mobile ? 'fadeOutDown' : 'fadeOutDown'}`">
+  <div class="relative h-full flex flex-col bg-white"
+      :class="{
+        'animated fadeInUp': !$device.mobile,
+        'animated fadeInUp': $device.mobile
+      }">
     <div class="flex-1 overflow-y-auto">
       <div class="flex p-4 justify-between">
         <h4 class="font-semibold">
@@ -116,10 +121,11 @@
       </div>
     </div>
     <div class="p-4">
-      <button
-        class="w-full text-center border-2 border-grid11 py-2 rounded text-grid12 font-semibold text-sm">
+      <router-link
+        :to="{ name: 'Checkout' }"
+        class="block w-full text-center border-2 border-grid11 py-2 rounded text-grid12 font-semibold text-sm">
         Go to checkout
-      </button>
+      </router-link>
       <button
         v-if="isMobile"
         class="w-full text-center border border-grid14 py-2 rounded text-grid12 font-semibold text-sm mt-2">
@@ -127,6 +133,7 @@
       </button>
     </div>
   </div>
+  </transition>
 </template>
 
 <script>

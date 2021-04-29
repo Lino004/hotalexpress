@@ -19,7 +19,10 @@
         Butcher • Delivery in 3 hours • Click’n collect
       </div>
       <div class="text-sm font-medium">
-        Rue des palais 308, Schaerbeek, 1030 Brussels • <a class="font-semibold underline">More information</a>
+        Delivery in 2 hours 47 mins • 3.2 KM • Open untill 21.00 • <a class="font-semibold underline">More information</a>
+      </div>
+      <div class="text-xs text-grid8">
+        Rue des palais 308, Schaerbeek, 1030 Brussels
       </div>
     </section>
     <section class="border-t border-b border-grid5 bg-white"
@@ -45,17 +48,20 @@
         </div>
       </div>
     </section>
-    <transition
-      name="custom-classes-transition"
-      enter-active-class="animated fadeIn"
-      v-for="(cat, i) in itemCategorie" :key="i">
-      <div v-if="i === currentItemCategorie">
+    <div v-for="(cat, i) in itemCategorie" :key="i">
+      <div
+        v-if="i === currentItemCategorie"
+        class="animated fadeIn">
         <collapse
           v-for="(item, i) in cat.items"
           :key="`${i}listcat`"
-          :data="item"/>
+          :data="item"
+          @show-produit="currentProduit = $event"/>
       </div>
-    </transition>
+    </div>
+    <div class="fixed top-0 w-screen h-screen z-30 bg-grid15" v-if="currentProduit">
+      <card-quickview :data="currentProduit" @close="currentProduit = null"/>
+    </div>
     <Footer show-footer-action-mobile/>
     <FooterActionMobile/>
   </div>
@@ -67,6 +73,7 @@ import NavBar from '@/components/general/NavBar.vue'
 import Collapse from '@/components/produit/Collapse.vue'
 import Footer from '@/components/general/Footer.vue'
 import CardResume from '@/components/produit/CardResume.vue'
+import CardQuickview from '@/components/produit/CardQuickview.vue'
 import FooterActionMobile from '@/components/general/FooterActionMobile.vue'
 
 import Boucherie from '@/assets/images/boucherie.png'
@@ -106,6 +113,7 @@ export default {
     Collapse,
     Footer,
     CardResume,
+    CardQuickview,
     FooterActionMobile
   },
   data () {
@@ -161,7 +169,8 @@ export default {
           title: 'Hamburgers',
           show: false
         }
-      ]
+      ],
+      currentProduit: null
     }
   },
   computed: {

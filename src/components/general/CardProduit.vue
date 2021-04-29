@@ -14,8 +14,9 @@
         </div>
       </div>
     </figure>
-    <div class="text-grid7 p-2 text-xs">
+    <div class="text-grid7 p-2 text-xs relative">
       {{description}}
+      <div v-if="temporaire" class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-75"></div>
     </div>
   </div>
 </template>
@@ -28,7 +29,8 @@ export default {
     description: String,
     labelBtn: String,
     img: String,
-    customClass: String
+    customClass: String,
+    temporaire: Boolean
   }
 }
 </script>

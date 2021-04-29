@@ -14,6 +14,10 @@ html, body {
   -ms-overflow: hidden !important;
   margin: 0;
   padding: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 #app {
   overflow-y: auto;
@@ -40,4 +44,13 @@ html, body {
 }
 .fade-enter, .fade-leave-to{
   opacity: 0;
+}
+button {
+  outline: none !important;
+}
+
+.absolute-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

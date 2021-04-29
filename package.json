@@ -1,5 +1,5 @@
 {
-  "name": "hotalexpress",
+  "name": "halalexpress",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,8 +12,10 @@
     "@tailwindcss/line-clamp": "^0.2.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
+    "vue-device-detector": "^1.1.6",
     "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "vuex-persistedstate": "^4.0.0-beta.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

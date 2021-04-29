@@ -1,36 +1,38 @@
 <template>
   <div>
     <NavBar/>
-    <hr class="text-grid5 w-5/6">
+    <hr class="text-grid5">
     <section class="container mx-auto w-full md:w-9/12 px-4">
       <h4 class="text-22px font-semibold py-4">Checkout</h4>
       <hr class="text-grid5">
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-9">
         <div class="lg:col-span-2">
           <div class="grid lg:grid-cols-2 gap-4 mb-4">
-            <div class="relative">
-              <div class="flex justify-between items-center  mb-3.5">
-                <h3 class="text-xl font-semibold">Delivery details</h3>
-                <button class="text-sm font-medium bg-grid5 rounded-xl px-2 py-1" @click="addToModalView('DeliveryAddress')">
-                  Edit
-                </button>
-              </div>
+            <div class="">
+              <h3 class="text-xl font-semibold mb-3.5">Delivery details</h3>
               <div class="w-full h-36 rounded bg-white p-5 shadow-box2 text-sm">
-                <div class="flex justify-between items-center">
-                  <div class="flex space-x-2 w-3/5">
+                <div class="flex justify-between items-center space-x-4">
+                  <div class="flex items-center space-x-2">
                     <span class="text-lg text-black">
                       <i class="mdi mdi-map-marker"></i>
                     </span>
                     <p class="text-grid10">
-                      Rue de brabant 230 1030, Schaerbeek Belgique
+                      From
+                      <span class="font-semibold underline">HalalBoucherie.be</span>
                     </p>
                   </div>
                 </div>
+                <div class="flex items-center space-x-2">
+                  <span class="text-lg text-black">
+                    <i class="mdi mdi-clock"></i>
+                  </span>
+                  <p class="text-grid10">
+                    Arriving in 3 hours
+                  </p>
+                </div>
               </div>
-              <img
-                src="@/assets/images/map.svg"
-                class="absolute bottom-0 right-0">
             </div>
+            <card-address/>
           </div>
           <div class="mb-10">
             <div class="flex justify-between items-center mb-3.5">
@@ -57,17 +59,66 @@
           <div class="mb-10">
             <div class="flex justify-between items-center  mb-3.5">
               <h3 class="text-xl font-semibold">Payment</h3>
-              <button class="text-sm font-medium bg-grid5 rounded-xl px-2 py-1" @click="addToModalView('DeliveryDetails')">
-                Edit
+              <button
+                class="text-sm font-medium bg-grid5 focus:outline-none rounded-xl px-2 py-1"
+                @click="confirmChoice = !confirmChoice">
+                {{confirmChoice ? 'Edit' : 'Confirm'}}
               </button>
             </div>
-            <div class="">
+            <div v-if="!confirmChoice">
               <div class="" v-for="(item, i) in itemsPayment" :key="i">
                 <label class="flex items-center">
                   <input type="radio" class="form-radio h-5 w-5 text-grid2" name="radio-payment" :value="i" v-model="choicePayment">
-                  <span class="ml-2 text-sm"> {{item}} </span>
+                  <span class="ml-2 text-sm"> {{item.label}} </span>
+                  <img
+                    v-for="(img, y) in item.imgs"
+                    :key="`${y}img`"
+                    :src="img"
+                    class="h-8">
                 </label>
-                <hr class="text-grid5 my-4" v-if="i !== itemsPayment.length - 1">
+                <hr class="text-grid5 my-4">
+              </div>
+              <div class="">
+                <label class="flex items-center">
+                  <input type="radio" class="form-radio h-5 w-5 text-grid2" name="radio-payment" :value="itemsPayment.length" v-model="choicePayment">
+                  <div
+                    :class="{
+                      'text-grid8': !wallet.value
+                    }">
+                    <span class="ml-2 text-sm"> Wallet </span> |
+                    <span> € {{wallet.value}} </span>
+                    <a class="text-grid2 cursor-pointer" v-if="!wallet.value">Upgrade your wallet</a>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div v-else>
+              <div v-if="choicePayment === 0">
+                <div class="flex items-center border-t border-b border-grid5 py-4">
+                  <span class="text-sm">Credit card | **** 6472</span>
+                  <img
+                    v-for="(img, y) in itemsPayment[choicePayment].imgs"
+                    :key="`${y}img`"
+                    :src="img"
+                    class="h-8">
+                </div>
+              </div>
+              <div v-if="choicePayment === 1">
+                <div class="flex items-center border-t border-b border-grid5 py-4">
+                  <span class="text-sm">Paypal | kamal@elbazi.com</span>
+                  <img
+                    v-for="(img, y) in itemsPayment[choicePayment].imgs"
+                    :key="`${y}img`"
+                    :src="img"
+                    class="h-8">
+                </div>
+              </div>
+              <div class="mt-4">
+                <span class="text-sm">You have € 6.99 left in your wallet.</span>
+                <label class="flex items-center">
+                  <input type="checkbox" class="form-checkbox">
+                  <span class="ml-2 text-xs">Use funds from my wallet first.</span>
+                </label>
               </div>
             </div>
           </div>
@@ -182,8 +233,13 @@
             <div class="p-4">
               <button
                 @click="$emit('go-to-checkout')"
+                class="w-full text-center border-2 border-grid14 py-2 rounded text-grid12 font-semibold text-sm mb-2">
+                Login to place order
+              </button>
+              <button
+                @click="$emit('go-to-checkout')"
                 class="w-full text-center border-2 border-grid11 py-2 rounded text-grid12 font-semibold text-sm">
-                Place order
+                Sign up
               </button>
             </div>
           </div>
@@ -200,12 +256,20 @@ import { mapMutations } from 'vuex'
 import NavBar from '@/components/general/NavBar.vue'
 import Footer from '@/components/general/Footer.vue'
 import FooterActionMobile from '@/components/general/FooterActionMobile.vue'
+import CardAddress from '@/components/general/CardAddress'
+
+import paypal from '@/assets/images/icons/paypal.svg'
+import visa from '@/assets/images/icons/visa.svg'
+import mastercard from '@/assets/images/icons/mastercard.svg'
+import bancontact from '@/assets/images/icons/bancontact.svg'
+import maestro from '@/assets/images/icons/maestro.svg'
 
 export default {
   components: {
     NavBar,
     Footer,
-    FooterActionMobile
+    FooterActionMobile,
+    CardAddress
   },
   data () {
     return {
@@ -216,12 +280,23 @@ export default {
       ],
       choicePayment: 0,
       itemsPayment: [
-        'Credit card',
-        'Paypal',
-        'Bancontact',
-        'Cash',
-        'Wallet'
-      ]
+        {
+          label: 'Credit card',
+          imgs: [mastercard, visa]
+        },
+        {
+          label: 'Paypal',
+          imgs: [paypal]
+        },
+        {
+          label: 'Bancontact',
+          imgs: [bancontact, maestro]
+        }
+      ],
+      wallet: {
+        value: 0
+      },
+      confirmChoice: false
     }
   },
   methods: {

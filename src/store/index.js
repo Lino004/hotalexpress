@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import menu from './modules/menu'
+import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    listModalViewComponent: []
+    listModalViewComponent: [],
+    cookies: false
   },
   mutations: {
     ADD_TO_MODAL_VIEW: (state, val) => {
@@ -23,14 +25,22 @@ export default new Vuex.Store({
     },
     RESET_LIST_MODAL_VIEW: (state) => {
       state.listModalViewComponent = []
+    },
+    SET_COOKIES: (state, val) => {
+      state.cookies = val
     }
   },
   actions: {
   },
   getters: {
-    listModalViewComponent: (state) => state.listModalViewComponent
+    listModalViewComponent: (state) => state.listModalViewComponent,
+    cookies: (state) => state.cookies
   },
   modules: {
     menu
-  }
+  },
+  plugins: [createPersistedState({
+    key: 'holalexpress',
+    paths: ['cookies']
+  })]
 })

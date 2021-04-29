@@ -1,39 +1,67 @@
 <template>
   <div
-    class="w-full bg-white shadow-box3 h-32 flex p-1 border-l-2 border-white hover:border-grid11 cursor-pointer">
-    <div class="flex-1 p-2 flex flex-col justify-between">
+    class="w-full bg-white shadow-box3 h-32 flex p-1 border-l-4 cursor-pointer relative"
+    :class="{
+      'border-grid11': data.qte,
+      'border-white': !data.qte,
+      'hover:border-grid11': !data.outOfStock,
+    }"
+    @click="actionClick">
+    <div
+      class="flex-1 p-2 flex flex-col justify-between"
+      :class="{
+        'opacity-40': data.outOfStock
+      }">
       <div class="flex-1">
         <h4 class="text-sm font-medium">
           <span
-            v-if="borderLeft"
+            v-if="data.qte"
             :class="{
-              'text-grid12 text-10px': borderLeft
-            }"> {{data.number}} x</span>
-          Lamb ribs - 500gr
+              'text-grid12 text-10px': data.qte
+            }"> {{data.qte}} x</span>
+          {{data.label}}
         </h4>
         <p class="text-grid10 font-medium text-xs pr-4 line-clamp-3">
-          Spicy marinated lamb ribs, lorem epsum lorem ipsum lorem ipsum lorem ipsum senir
+          {{data.description}}
         </p>
       </div>
       <div class="text-sm font-medium">
-        4,90 € <span class="text-grid10 font-medium text-xs"> /500gr.</span>
+        {{data.price}}
+        <span class="text-grid10 font-medium text-xs">
+          {{data.qtePerPrice}}
+        </span>
+        <span v-if="data.option" class="text-xs">
+          (variable product)
+        </span>
       </div>
     </div>
     <div
       class="h-full relative"
       :class="{
-        'bg-grid13 w-32': !noImg
-      }">
-      <button
-        class="absolute bottom-0 right-0 px-1"
+        'bg-grid13 w-32': data.img
+      }"
+      v-if="data.img">
+      <img
+        :src="data.img"
+        v-if="data.img"
+        class="w-full h-full object-cover"
         :class="{
-          'bg-grid13 rounded-md': noImg
+          'opacity-40': data.outOfStock
         }">
-        <span class="text-grid12">
-          <i class="mdi mdi-plus"></i>
-        </span>
-      </button>
+      <div class="absolute w-full text-center bg-white absolute-center text-sm font-semibold py-1" v-if="data.outOfStock">
+        OUT OF STOCK
+      </div>
     </div>
+    <button
+      v-if="!data.option"
+      class="absolute bottom-2 right-2 px-1 rounded-md bg-grid13 bg-opacity-50"
+      :class="{
+        'opacity-40 cursor-not-allowed': data.outOfStock
+      }">
+      <span class="text-xl text-grid2">
+        <i class="mdi mdi-plus"></i>
+      </span>
+    </button>
   </div>
 </template>
 
@@ -41,14 +69,6 @@
 
 export default {
   props: {
-    noImg: {
-      type: Boolean,
-      default: false
-    },
-    borderLeft: {
-      type: Boolean,
-      default: false
-    },
     data: {
       type: Object,
       default: () => {}
@@ -56,6 +76,13 @@ export default {
   },
   data () {
     return {}
+  },
+  methods: {
+    actionClick () {
+      if (this.data.option) {
+        this.$emit('is-click')
+      }
+    }
   }
 }
 </script>

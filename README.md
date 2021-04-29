@@ -1,4 +1,4 @@
-# hotalexpress
+# Halalexpress
 
 ## Project setup
 ```
